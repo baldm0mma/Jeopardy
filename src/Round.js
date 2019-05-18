@@ -1,26 +1,37 @@
 import data from "./dataset";
 
 class Round {
-  constructor(randomCategoryNum) {
+  constructor(randomCategories) {
     this.data = data;
-    this.roundNumber = 0;
-    this.currentCategoryTitle = this.returnCurrentCategoryTitle(randomCategoryNum);
-    this.currentCategoryClues = this.retrunCurrentCategoryClues(randomCategoryNum);
+    this.roundNumber = 1;
+    this.currentTurn = 1;
+    this.categoryTitles = this.returnCurrentCategoryTitle(randomCategories);
+    this.categoryClues = this.retrunCurrentCategoryClues(randomCategories);
   }
 
-  returnCurrentCategoryTitle(randomCategoryNum) {
-    return Object.keys(data.categories).find(key => data.categories[key] === randomCategoryNum);
+  returnCurrentCategoryTitle(randomCategories) {
+    return randomCategories.map(category => {
+      return Object.keys(data.categories).find(key => data.categories[key] === category);
+    });
   }
 
-  retrunCurrentCategoryClues(randomCategoryNum) {
-    const usableClues = data.clues.reduce((allClues, clue) => {
-      if (clue.categoryId === randomCategoryNum) {
-        allClues.push(clue);
+  retrunCurrentCategoryClues(randomCategories) {
+    return randomCategories.map(category => {
+      const usableClues = data.clues.reduce((allClues, clue) => {
+        if (clue.categoryId === category) {
+          allClues.push(clue);
+        }
+        return allClues;
+      }, []);
+      while (usableClues.length > 4) {
+        usableClues.splice(Math.round(Math.random() * usableClues.length), 1);
       }
-      return allClues;
-    }, []);
-    usableClues.splice(Math.round(Math.random() * 4), 1);
-    return usableClues;
+      return usableClues;
+    });
+  }
+
+  nextTurn() {
+    this.currentTurn++;
   }
 }
 
