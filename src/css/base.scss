@@ -1,6 +1,54 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+$dark-blue: #03588C;
+$light-blue: #4393D9;
+$yellow: #F2BF27;
+$test-border: 1px solid red;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 body {
-  background-color: $primary-background;
+  background-color: $light-blue;
 }
+
+.main__entering-names-background {
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100vh;
+}
+
+.main__entering-names {
+  width: 700px;
+  border: $test-border;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 150px;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+.player-names-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+
+.main__entering-names-player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.start-btn {
+  width: 150px;
+  height: 30px;
+}
+
+
