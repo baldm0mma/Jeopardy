@@ -22,11 +22,10 @@ class Round {
         if (clue.categoryId === category) {
           allClues.push(clue);
         }
-        return allClues;
+        return allClues.filter((clue, index, array) => {
+          return array.map(mapClue => mapClue['pointValue']).indexOf(clue['pointValue']) === index;
+        });
       }, []);
-      while (usableClues.length > 4) {
-        usableClues.splice(Math.round(Math.random() * usableClues.length), 1);
-      }
       return usableClues;
     });
   }
