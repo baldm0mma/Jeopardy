@@ -3,11 +3,15 @@ $light-blue: #4393D9;
 $yellow: #F2BF27;
 $test-border: 1px solid red;
 
+// font-family: 'Comfortaa', cursive;
+// font-family: 'Macondo Swash Caps', cursive;
+// font-family: 'Roboto', sans-serif;
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Oxygen, sans-serif;
+  font-family: 'Comfortaa', cursive;
   font-weight: 300;
 }
 
@@ -15,8 +19,17 @@ body {
   background-color: $light-blue;
 }
 
+.logo {
+  font-family: 'Macondo Swash Caps', cursive;
+  margin: 20px;
+  font-size: 38px;
+  color: $yellow;
+  position: absolute;
+}
+
+
 .main__entering-names-background {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.9);
   width: 100%;
   height: 100vh;
   display: flex;
@@ -24,6 +37,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 99;
   // display: none;
 }
 
@@ -44,7 +58,9 @@ body {
   align-items: center;
   width: 80%;
 }
-
+.main__entering-names-header {
+  text-align: center;
+}
 .main__entering-names-player-container {
   display: flex;
   flex-direction: column;
@@ -80,12 +96,17 @@ body {
   font-size: 20px;
 }
 
+.main__entering-names-header {
+  color: #fff;
+  font-size: 20px;
+} 
+
 // part two of the dome > Game part
 
 .main__game-background {
   width: 100%;
-  height: 100vh;
-  border: $test-border;
+  // height: 100vh;
+  border: 1px solid transparent
 }
 
 .main__game-board-container {
@@ -104,6 +125,7 @@ body {
 }
 table {
   border-collapse: collapse;
+  table-layout: fixed;
 }
 tr {
   width: 100%;
@@ -114,15 +136,25 @@ tr {
 th, td {
   border: 2px solid black;
 }
+th {
+  color: #fff;
+  padding: 10px;
+}
+
+td {
+  color: $yellow;
+  font-size: 30px;
+  text-align: center;
+}
 
 .main__game-prompts {
   height: 30px;
   background-color: #000;
   color: #fff;
   padding-left: 10px;
-  padding-top: 5px;
+  padding-top: 8px;
   font-size: 13px;
-}
+};
 
 .main__game-your-answer-container {
   height: 50px;
@@ -154,10 +186,41 @@ th, td {
 }
 
 .main__players-container {
-  border: $test-border;
+  width: 100%;
+  height: 120px;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.main__players {
   width: 800px;
-  height: 100px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main__players-player-value {
+  border: #000 1px solid;
+  width: 25%;
+  height: 70px;
+  position: relative;
+  text-align: center;
+  padding-top: 11px;
+  background-color: $dark-blue;
+  color: #fff;
+  font-size: 25px;
+}
+
+.main__players-player-name {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  height: 25px;
+  padding-top: 5px;
+  background-color: #000;
+  color: $yellow;
+  font-size: 15px;
 }
