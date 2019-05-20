@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Gametime Starter Kit</title>
+    <title>Jeopardy</title>
+    <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,700" rel="stylesheet">
   </head>
   <body>
-    <h1>Gametime Starter Kit</h1>
+    <main>
+      <section class="main__entering-names-background">
+        <div class="main__entering-names">
+          <h2 class="main__entering-names-header yellow-text">Welcome to Jeopardy, please enter your names to start the game!</h2>
+          <div class="player-names-container yellow-text">
+            <div class="main__entering-names-player-container">
+              <label class="player-input-label" for="player-one-input">PLAYER I</label>
+              <input class="player-input" type="text" id="player-one-input">
+            </div>
+            <div class="main__entering-names-player-container">
+              <label class="player-input-label" for="player-two-input">PLAYER II</label>
+              <input class="player-input" type="text" id="player-two-input">
+            </div>
+            <div class="main__entering-names-player-container">
+              <label class="player-input-label" for="player-three-input">PLAYER III</label>
+              <input class="player-input" type="text" id="player-three-input">
+            </div>
+          </div>
+          <button class="start-btn">START</button>
+        </div>
+      </section>
+      <section class="main__game">
+      </section>
+    </main>
 
-    <img src="/images/turing-logo.png" alt="turing logo" height="100px" width="100px">
+    
 
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
+   
   </body>
 </html>
+
