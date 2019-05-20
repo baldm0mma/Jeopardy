@@ -1,3 +1,4 @@
+
 // This is the JavaScript entry file - your code begins here
 // Do not delete or rename this file ********
 
@@ -9,17 +10,29 @@ import './css/base.scss';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
-import Game from './Game';
+// import Game from './Game';
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
-const prompts = {
-  message1: `hey ${id} adaaddja`,
-  message2: 'djdhudshds'
-}
+// const prompts = {
+//   message1: `hey ${id} adaaddja`,
+//   message2: 'djdhudshds'
+// }
 
 function turnPrompt(id, prompts) {
   return prompt.messageX
 }
 
-let game = new Game;
+// let game = new Game;
+
+
+$(document).ready(function() {
+  $(".start-btn").click(function() {
+    if ($('#player-one-input').val() !== "" && $('#player-two-input').val() !== "" && $('#player-three-input').val() !== "") {
+      $(".main__entering-names-background").hide()
+    }
+  }); 
+});
+
+
+

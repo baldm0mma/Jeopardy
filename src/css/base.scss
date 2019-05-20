@@ -1,6 +1,226 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+$dark-blue: #03588C;
+$light-blue: #4393D9;
+$yellow: #F2BF27;
+$test-border: 1px solid red;
+
+// font-family: 'Comfortaa', cursive;
+// font-family: 'Macondo Swash Caps', cursive;
+// font-family: 'Roboto', sans-serif;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 300;
+}
 
 body {
-  background-color: $primary-background;
+  background-color: $light-blue;
+}
+
+.logo {
+  font-family: 'Macondo Swash Caps', cursive;
+  margin: 20px;
+  font-size: 38px;
+  color: $yellow;
+  position: absolute;
+}
+
+
+.main__entering-names-background {
+  background-color: rgba(0,0,0,0.9);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  // display: none;
+}
+
+.main__entering-names {
+  width: 800px;
+  background-color: $dark-blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 300px;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+}
+.player-names-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+.main__entering-names-header {
+  text-align: center;
+}
+.main__entering-names-player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.start-btn {
+  width: 150px;
+  height: 35px;
+  background-color: $yellow;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  width: 250px;
+  color: $dark-blue;
+  font-size: 20px;
+}
+
+.yellow-text {
+  color: $yellow;
+}
+
+.player-input-label {
+  font-size: 20px;
+}
+
+.player-input {
+  width: 200px;
+  height: 35px;
+  border-radius: 4px;
+  border: 1px solid $yellow;
+  background-color: $light-blue;
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+.main__entering-names-header {
+  color: #fff;
+  font-size: 20px;
+} 
+
+// part two of the dome > Game part
+
+.main__game-background {
+  width: 100%;
+  // height: 100vh;
+  border: 1px solid transparent
+}
+
+.main__game-board-container {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+  border-radius: 4px;
+}
+
+.main__game-board {
+  border: 1px solid #000;
+  width: 100%;
+  height: 450px;
+  
+}
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+tr {
+  width: 100%;
+  height: 20%;
+  background-color: $dark-blue;
+}
+
+th, td {
+  border: 2px solid black;
+}
+th {
+  color: #fff;
+  padding: 10px;
+}
+
+td {
+  color: $yellow;
+  font-size: 30px;
+  text-align: center;
+}
+
+.main__game-prompts {
+  height: 30px;
+  background-color: #000;
+  color: #fff;
+  padding-left: 10px;
+  padding-top: 8px;
+  font-size: 13px;
+};
+
+.main__game-your-answer-container {
+  height: 50px;
+  background-color:#B5B5B5;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 100%;
+}
+
+.your-answer-input {
+  width: 240px;
+  height: 27px;
+  margin-left: 17px;
+  padding-left: 10px;
+  border-radius: 4px;
+  background-color: #DEDDDD;
+  border: 1px solid #6A6A6A;
+}
+
+#go-btn {
+  width: 240px;
+  height: 27px;
+  margin-top: 12px;
+  margin-left: 17px;
+  border-radius: 4px;
+  background-color: $yellow;
+  color: $dark-blue;
+  border: $dark-blue 1px solid;
+}
+
+.main__players-container {
+  width: 100%;
+  height: 120px;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.main__players {
+  width: 800px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main__players-player-value {
+  border: #000 1px solid;
+  width: 25%;
+  height: 70px;
+  position: relative;
+  text-align: center;
+  padding-top: 11px;
+  background-color: $dark-blue;
+  color: #fff;
+  font-size: 25px;
+}
+
+.main__players-player-name {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  height: 25px;
+  padding-top: 5px;
+  background-color: #000;
+  color: $yellow;
+  font-size: 15px;
 }

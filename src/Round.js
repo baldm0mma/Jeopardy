@@ -11,7 +11,8 @@ class Round {
 
   returnCurrentCategoryTitle(randomCategories) {
     return randomCategories.map(category => {
-      return Object.keys(data.categories).find(key => data.categories[key] === category);
+      return Object.keys(data.categories).find(key =>
+        data.categories[key] === category);
     });
   }
 
