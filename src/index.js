@@ -35,11 +35,7 @@ $(document).ready(function() {
       $(".main__entering-names-background").hide();
 
       const game = new Game([$('#player-one-input').val(), $('#player-two-input').val(), $('#player-three-input').val()]);
-      domUpdates.updatePlayerNames();
+      domUpdates.updatePlayerNames(game);
     }
   }); 
 });
-
-
-
-
