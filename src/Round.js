@@ -12,8 +12,11 @@ class Round {
 
   generateCurrentCategoryTitle(randomCategories) {
     return randomCategories.map(category => {
-      return Object.keys(data.categories).find(key =>
+      let final = Object.keys(data.categories).find(key =>
         data.categories[key] === category);
+      return final.split(/(?=[A-Z])/).map(word => {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      }).join(' ');
     });
   }
 
@@ -53,4 +56,4 @@ class Round {
 
 }
 
-export default Round;
+export default Round; 
