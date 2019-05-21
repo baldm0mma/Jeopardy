@@ -1,8 +1,9 @@
 import chai from 'chai';
 const expect = chai.expect;
-const Game = require('../src/Game');
-const Player = require('../src/Player');
-const Round = require('../src/Round');
+import Game from '../src/Game';
+import Player from '../src/Player';
+import Round from '../src/Round';
+import data from '../src/dataset';
 
 describe('Game', function() {
 
@@ -19,8 +20,8 @@ describe('Game', function() {
     expect(game).to.be.an.instanceof(Game);
   });
 
-  it('should begin with 10 categories', function() {
-    expect(game.categories).to.eql([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  it('should begin with 4 fewer categories than the dataset provides', function() {
+    expect(game.categories.length).to.equal(Object.values(data.categories).length - 4);
   });
 
   it('should instantiate all of the players', function() {
@@ -34,12 +35,11 @@ describe('Game', function() {
   });
 
   it('should have a method that returns four random categories from game.categories', function() {
-    expect(game.returnRandomizedCategories()).to.have.lengthOf(4);
-    expect(game.categories).to.have.lengthOf(6);
+    expect(game.generateRandomizedCategories()).to.have.lengthOf(4);
   });
 
-  it('should have a method that restarts the game', function() {
-    expect???
-  });
+  // it('should have a method that restarts the game', function() {
+  //   expect???
+  // });
 
 });
