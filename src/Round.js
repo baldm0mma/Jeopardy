@@ -41,11 +41,13 @@ class Round {
   }
 
   checkAnswer(currentPlayer, playerInput, clue) {
-    
+    const points = clue.pointValue * this.roundNumber;
     if (playerInput.toLowerCase() === clue.answer.toLowerCase()) {
-      currentPlayer.score += clue.pointValue * this.roundNumber;
+      currentPlayer.score += points;
+      turnPrompt(102, this.currentTurn, points);
     } else {
-      currentPlayer.score -= clue.pointValue * this.roundNumber;
+      currentPlayer.score -= points;
+      turnPrompt(103, this.currentTurn, points);
     }
   }
 
