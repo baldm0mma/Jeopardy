@@ -13,10 +13,10 @@ class Game {
 
   generateRandomizedCategories() {
     for (var i = this.categories.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
+      var z = Math.floor(Math.random() * (i + 1));
       var temp = this.categories[i];
-      this.categories[i] = this.categories[j];
-      this.categories[j] = temp;
+      this.categories[i] = this.categories[z];
+      this.categories[z] = temp;
     }
     return this.categories.splice(0, 4);
   }

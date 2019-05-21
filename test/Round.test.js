@@ -1,7 +1,6 @@
 import chai from 'chai';
 const expect = chai.expect;
 import Round from '../src/Round';
-import Game from '../src/Game';
 
 describe('Round', function() {
 

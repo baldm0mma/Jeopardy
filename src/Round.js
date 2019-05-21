@@ -31,8 +31,22 @@ class Round {
   }
 
   nextTurn() {
-    this.currentTurn++;
+    if (this.currentTurn >= 3) {
+      this.currentTurn = 1;
+    } else {
+      this.currentTurn++;
+    }
   }
+
+  checkAnswer(currentPlayer, playerInput, clue) {
+    
+    if (playerInput.toLowerCase() === clue.answer.toLowerCase()) {
+      currentPlayer.score += clue.pointValue * this.roundNumber;
+    } else {
+      currentPlayer.score -= clue.pointValue * this.roundNumber;
+    }
+  }
+
 }
 
 export default Round;
