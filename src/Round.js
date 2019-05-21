@@ -3,6 +3,7 @@ import data from "./dataset";
 class Round {
   constructor(randomCategories, allPlayers) {
     this.data = data;
+    this.allPlayers = allPlayers;
     this.roundNumber = 1;
     this.currentTurn = 1;
     this.categoryTitles = this.generateCurrentCategoryTitle(randomCategories);
@@ -38,16 +39,15 @@ class Round {
     }
   }
 
-  confirmCurrentPlayer(allPlayers) {
-    return allPlayers.find(player => player.id === this.currentTurn);
+  confirmCurrentPlayer() {
+    return this.allPlayers.find(player => player.id === this.currentTurn);
   }
 
-  checkCurrentAnswer(currentPlayer, playerInput, clue) {
-    
+  validateCurrentAnswer(playerInput, clue) {
     if (playerInput.toLowerCase() === clue.answer.toLowerCase()) {
-      currentPlayer.score += clue.pointValue * this.roundNumber;
+      this.confirmCurrentPlayer().score += clue.pointValue * this.roundNumber;
     } else {
-      currentPlayer.score -= clue.pointValue * this.roundNumber;
+      this.confirmCurrentPlayer().score -= clue.pointValue * this.roundNumber;
     }
   }
 
