@@ -33,6 +33,58 @@ const domUpdates = {
     $('.main__game-data-2-4').text(game.round.categoryClues[1][3].pointValue);
     $('.main__game-data-3-4').text(game.round.categoryClues[2][3].pointValue);
     $('.main__game-data-4-4').text(game.round.categoryClues[3][3].pointValue);
+    domUpdates.selectClue(game)
+  },
+
+  selectClue(game){
+    $('.main__game-data-1-1').click(function(){
+      $('.main__game-data-1-1').text(game.round.categoryClues[0][0].question)
+    })
+    $('.main__game-data-2-1').click(function(){
+      $('.main__game-data-2-1').text(game.round.categoryClues[0][0].question)
+    })
+    $('.main__game-data-3-1').click(function(){
+      $('.main__game-data-3-1').text(game.round.categoryClues[0][0].question)
+    })
+    $('.main__game-data-4-1').click(function(){
+      $('.main__game-data-4-1').text(game.round.categoryClues[0][0].question)
+    })
+    $('.main__game-data-1-2').click(function(){
+      $('.main__game-data-1-2').text(game.round.categoryClues[0][0].question)
+    })
+    $('.main__game-data-2-2').click(function(){
+      $('.main__game-data-2-2').text(game.round.categoryClues[0][0].question)
+    })
+    $('.main__game-data-3-2').click(function(){
+      $('.main__game-data-3-2').text(game.round.categoryClues[0][0].question)
+    })
+    $('.main__game-data-4-2').click(function(){
+      $('.main__game-data-4-2').text(game.round.categoryClues[0][0].question)
+    })
+    $('.main__game-data-1-3').click(function(){
+      $('.main__game-data-1-3').text(game.round.categoryClues[0][0].question)
+    })
+    $('.main__game-data-2-3').click(function(){
+      $('.main__game-data-2-3').text(game.round.categoryClues[0][0].question)
+    })
+    $('.main__game-data-3-3').click(function(){
+      $('.main__game-data-3-3').text(game.round.categoryClues[0][0].question)
+    })
+    $('.main__game-data-4-3').click(function(){
+      $('.main__game-data-4-3').text(game.round.categoryClues[0][0].question)
+    })
+    $('.main__game-data-1-4').click(function(){
+      $('.main__game-data-1-4').text(game.round.categoryClues[0][0].question)
+    })  
+    $('.main__game-data-2-4').click(function(){
+      $('.main__game-data-2-4').text(game.round.categoryClues[0][0].question)
+    }) 
+    $('.main__game-data-3-4').click(function(){
+      $('.main__game-data-3-4').text(game.round.categoryClues[0][0].question)
+    }) 
+    $('.main__game-data-4-4').click(function(){
+      $('.main__game-data-4-4').text(game.round.categoryClues[0][0].question)
+    }) 
   }
 };
 

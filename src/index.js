@@ -39,6 +39,6 @@ $(document).ready(function() {
   }); 
 });
 
-
-
-
+$('.main__game-data-1-1').click(function(){
+  $('.main__game-data-1-1').text(game.round.categoryClues[0][0].question)
+})
