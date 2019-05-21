@@ -17,15 +17,30 @@ import dataset from './dataset'
 import { domainToASCII } from 'url';
 
 
-console.log('This is the JavaScript entry file - your code begins here.');
 
-// const prompts = {
-//   message1: `hey ${id} adaaddja`,
-//   message2: 'djdhudshds'
+// function turnPrompt(pID, currentPlayerId, p1, p2, p3) {
+//   var prompt;
+
+//   if (pID === 100) {
+//     prompt = `Welcome to the Jeopardy, ${p1}, ${p2} and ${p3}. Enjoy the game!`
+//   }
+//   $('.main__game-prompts').text(prompt)
+//   console.log(prompt);
 // }
 
-function turnPrompt(id, prompts) {
-  return prompt.messageX
+function turnPrompt(promptID, currentPlayerId) {
+  const player = {
+    1: $('#player-one-input').val(),
+    2: $('#player-two-input').val(),
+    3: $('#player-three-input').val()
+  };
+  const prompt = {
+    100: `Welcome to the Jeopardy, ${player[1]}, ${player[2]} and ${player[3]}. Enjoy the game!`,
+    101: `${player[currentPlayerId]} it's your turn, chose a question and good luck!`,
+  }
+
+  $('.main__game-prompts').text(prompt[promptID])
+  console.log(prompt[promptID]);
 }
 
 
@@ -36,6 +51,10 @@ $(document).ready(function() {
 
       const game = new Game([$('#player-one-input').val(), $('#player-two-input').val(), $('#player-three-input').val()]);
       domUpdates.updatePlayerNames(game);
+
+      turnPrompt(100, 0)
     }
   }); 
 });
+
+export default turnPrompt;

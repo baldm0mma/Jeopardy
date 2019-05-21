@@ -1,4 +1,5 @@
 import data from "./dataset";
+import turnPrompt from "./index"
 
 class Round {
   constructor(randomCategories) {
@@ -36,6 +37,7 @@ class Round {
     } else {
       this.currentTurn++;
     }
+    turnPrompt(101, this.currentTurn);
   }
 
   checkAnswer(currentPlayer, playerInput, clue) {
