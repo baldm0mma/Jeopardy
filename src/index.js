@@ -54,6 +54,11 @@ $(document).ready(function() {
       domUpdates.updatePlayerNames(game);
 
       turnPrompt(100);
+      let go = () => {
+        turnPrompt(101, 1)
+      };
+      setTimeout(go, 2000);
+      
     }
   }); 
 });
