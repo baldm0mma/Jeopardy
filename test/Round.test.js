@@ -1,12 +1,12 @@
 import chai from 'chai';
 const expect = chai.expect;
-const Round = require('../src/Round');
+import Round from '../src/Round';
 
 describe('Round', function() {
 
   let round;
   beforeEach(function() {
-    round = new Round(['Jev', 'DeMarcus', 'Hindreen']);
+    round = new Round([1, 2, 3, 4]);
   });
 
   it('should be a function', function() {
@@ -29,8 +29,8 @@ describe('Round', function() {
     expect(round.categoryTitles).to.have.lengthOf(4);
   });
 
-  it('should have a category clues list that are 4 clues from each of the 4 categories', function() {
-    expect(round.categoryClues).to.have.lengthOf(??????????);
-  });
+  // it('should have a category clues list that are 4 clues from each of the 4 categories', function() {
+  //   expect(round.categoryClues).to.have.lengthOf(??????????);
+  // });
 
 });
