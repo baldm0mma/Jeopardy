@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-const domupdates = {
+const domUpdates = {
   "updatePlayerNames": function() {
     $("#").text = $('#player-one-input').val();
     $("#").text = $('#player-two-input').val();

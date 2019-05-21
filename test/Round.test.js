@@ -29,8 +29,8 @@ describe('Round', function() {
     expect(round.categoryTitles).to.have.lengthOf(4);
   });
 
-  it('should have a category clues list that are 4 clues from each of the 4 categories', function() {
-    expect(round.categoryClues).to.have.lengthOf(??????????);
-  });
+  // it.skip('should have a category clues list that are 4 clues from each of the 4 categories', function() {
+  //   expect(round.categoryClues).to.have.lengthOf(??????????);
+  // });
 
 });
