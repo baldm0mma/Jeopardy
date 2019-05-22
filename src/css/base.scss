@@ -121,7 +121,6 @@ body {
   border: 1px solid #000;
   width: 100%;
   height: 450px;
-  
 }
 table {
   border-collapse: collapse;
@@ -147,6 +146,13 @@ td {
   text-align: center;
 }
 
+.clue-class {
+  color: #fff;
+  font-size: 12px;
+  padding-left: 5px;
+  text-align: left;
+}
+
 .main__game-prompts {
   height: 30px;
   background-color: #000;
@@ -157,11 +163,22 @@ td {
 };
 
 .main__game-your-answer-container {
-  height: 50px;
+  height: 55px;
   background-color:#B5B5B5;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   width: 100%;
+  transform: translateY(-43px);
+  position: absolute;
+  width: 800px;
+  z-index: -1;
+  transition: 0.2s;
+}
+
+.slide-down {
+  transform: translateY(0px);
+  transition: 0.2s;
+  
 }
 
 .your-answer-input {
