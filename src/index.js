@@ -4,6 +4,8 @@
 
 // An example of how you import jQuery into a JS file if you use jQuery in that file
 import $ from 'jquery';
+import fetch from 'cross-fetch';
+import data from './data'
 
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
@@ -27,6 +29,15 @@ import { domainToASCII } from 'url';
 //   $('.main__game-prompts').text(prompt)
 //   console.log(prompt);
 // }
+
+// let data;
+
+// fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
+// .then(response => response.json())
+// .then(myData => {
+//   data = myData.data;
+//   console.log(data);
+// })
 
 function turnPrompt(promptID, currentPlayerId, points) {
   const player = {
@@ -67,4 +78,4 @@ $(document).ready(function() {
   });
 });
 
-export default turnPrompt;
+// export default turnPrompt;
