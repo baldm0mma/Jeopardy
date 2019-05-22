@@ -1,5 +1,5 @@
 import data from "./dataset";
-import turnPrompt from "./index"
+// import turnPrompt from "./index"
 
 class Round {
   constructor(randomCategories) {
