@@ -145,6 +145,14 @@ td {
   color: $yellow;
   font-size: 30px;
   text-align: center;
+  overflow: hidden;
+}
+
+.clue-class {
+  color: #fff;
+  font-size: 12px;
+  padding-left: 5px;
+  text-align: left;
 }
 
 .main__game-prompts {

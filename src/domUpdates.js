@@ -43,6 +43,7 @@ const domUpdates = {
       const b = parseInt(el.dataset.is);
       if ( !isNaN(a) && !isNaN(b)) {
         $(el).text(game.round.categoryClues[a][b].question)
+        $(el).addClass('clue-class');
       }
     })
   }
