@@ -16,10 +16,6 @@ const domUpdates = {
     domUpdates.populateClues(game);
   },
 
-  
-
-    
-
   populateClues(game) {
     $('.main__game-data-1-1').text(game.round.categoryClues[0][0].pointValue);
     $('.main__game-data-2-1').text(game.round.categoryClues[1][0].pointValue);
