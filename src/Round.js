@@ -38,7 +38,7 @@ class Round {
     } else {
       this.currentTurn++;
     }
-    turnPrompt(101, this.currentTurn);
+    // turnPrompt(101, this.currentTurn);
   }
 
   confirmCurrentPlayer() {
@@ -49,10 +49,10 @@ class Round {
     const points = clue.pointValue * this.roundNumber;
     if (playerInput.toLowerCase() === clue.answer.toLowerCase()) {
       this.confirmCurrentPlayer().score += points;
-      turnPrompt(102, this.currentTurn, points);
+      // turnPrompt(102, this.currentTurn, points);
     } else {
       this.confirmCurrentPlayer().score -= points;
-      turnPrompt(103, this.currentTurn, points);
+      // turnPrompt(103, this.currentTurn, points);
     }
   }
 }
