@@ -1,4 +1,5 @@
 import data from "./dataset";
+import turnPrompt from "./index"
 
 class Round {
   constructor(randomCategories, allPlayers) {
@@ -37,6 +38,7 @@ class Round {
     } else {
       this.currentTurn++;
     }
+    turnPrompt(101, this.currentTurn);
   }
 
   confirmCurrentPlayer() {
@@ -44,13 +46,15 @@ class Round {
   }
 
   validateCurrentAnswer(playerInput, clue) {
+    const points = clue.pointValue * this.roundNumber;
     if (playerInput.toLowerCase() === clue.answer.toLowerCase()) {
-      this.confirmCurrentPlayer().score += clue.pointValue * this.roundNumber;
+      this.confirmCurrentPlayer().score += points;
+      turnPrompt(102, this.currentTurn, points);
     } else {
-      this.confirmCurrentPlayer().score -= clue.pointValue * this.roundNumber;
+      this.confirmCurrentPlayer().score -= points;
+      turnPrompt(103, this.currentTurn, points);
     }
   }
-
 }
 
 export default Round; 

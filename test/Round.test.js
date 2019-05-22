@@ -57,5 +57,4 @@ describe('Round', function() {
     round.validateCurrentAnswer("Six Feet Under", clue);
     expect(round.allPlayers[0].score).to.equal(300);
   });
-
 });
