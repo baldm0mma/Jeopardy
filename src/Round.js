@@ -1,8 +1,8 @@
-import data from "./dataset";
-import turnPrompt from "./index"
+// import data from "./data";
+// import turnPrompt from "./index"
 
 class Round {
-  constructor(randomCategories) {
+  constructor(randomCategories, data) {
     this.data = data;
     this.roundNumber = 1;
     this.currentTurn = 1;
@@ -12,14 +12,14 @@ class Round {
 
   generateCurrentCategoryTitle(randomCategories) {
     return randomCategories.map(category => {
-      return Object.keys(data.categories).find(key =>
-        data.categories[key] === category);
+      return Object.keys(this.data.categories).find(key =>
+        this.data.categories[key] === category);
     });
   }
 
   generateCurrentCategoryClues(randomCategories) {
     return randomCategories.map(category => {
-      const usableClues = data.clues.reduce((allClues, clue) => {
+      const usableClues = this.data.clues.reduce((allClues, clue) => {
         if (clue.categoryId === category) {
           allClues.push(clue);
         }
