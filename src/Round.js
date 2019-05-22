@@ -1,4 +1,3 @@
-// import data from "./data";
 // import turnPrompt from "./index"
 
 class Round {
@@ -47,12 +46,18 @@ class Round {
 
   validateCurrentAnswer(playerInput, clue) {
     const points = clue.pointValue * this.roundNumber;
+    console.log('clue', clue)
     if (playerInput.toLowerCase() === clue.answer.toLowerCase()) {
       this.confirmCurrentPlayer().score += points;
+      //invoke DOM update function to relfect game.playerX.score by passing this.confirmCurrentPlayer();
+      console.log('player correct', this.confirmCurrentPlayer());
       // turnPrompt(102, this.currentTurn, points);
     } else {
       this.confirmCurrentPlayer().score -= points;
+      //invoke DOM update function to relfect game.playerX.score by passing this.confirmCurrentPlayer();
+      console.log('player incorrect', this.confirmCurrentPlayer());
       // turnPrompt(103, this.currentTurn, points);
+      this.nextTurn();
     }
   }
 }

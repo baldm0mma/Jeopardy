@@ -71,10 +71,7 @@ $(document).ready(function() {
       
     }
   });
-  $('#go-btn').click(function() {
-    $('.main__game-your-answer-container').removeClass('slide-down');
-    // console.log('clickeeed')
-  });
+
 });
 
 // export default turnPrompt;
