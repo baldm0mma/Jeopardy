@@ -40,7 +40,7 @@ describe('Round', function() {
     expect(round.currentTurn).to.equal(1);
   });
 
-  it('should have a category titles list that are the 4 categories currently being played', function() {
+  it('should have a category titles list that are the 4 categories currently being played returned in plain English', function() {
     expect(round.categoryTitles).to.have.lengthOf(4);
   });
 
