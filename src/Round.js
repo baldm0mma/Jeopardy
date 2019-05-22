@@ -22,15 +22,12 @@ class Round {
 
   generateCurrentCategoryClues(randomCategories) {
     return randomCategories.map(category => {
-      const usableClues = data.clues.reduce((allClues, clue) => {
-        if (clue.categoryId === category) {
+      return data.clues.reduce((allClues, clue) => {
+        if (clue.categoryId === category && !allClues.map(clu => clu.pointValue).includes(clue.pointValue)) {
           allClues.push(clue);
         }
-        return allClues.filter((clue, index, finalClues) => {
-          return finalClues.map(mapClue => mapClue['pointValue']).indexOf(clue['pointValue']) === index;
-        });
+        return allClues;
       }, []);
-      return usableClues;
     });
   }
 
