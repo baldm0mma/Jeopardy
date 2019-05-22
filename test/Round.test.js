@@ -29,7 +29,11 @@ describe('Round', function() {
     expect(round.categoryTitles).to.have.lengthOf(4);
   });
 
+<<<<<<< HEAD
+  // it.skip('should have a category clues list that are 4 clues from each of the 4 categories', function() {
+=======
   // it('should have a category clues list that are 4 clues from each of the 4 categories', function() {
+>>>>>>> 5987b1dfef5827f524e8d1fb616bf9d98f504bde
   //   expect(round.categoryClues).to.have.lengthOf(??????????);
   // });
 
