@@ -1,6 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 import Round from '../src/Round';
+import data from "../src/dataset";
 
 describe('Round', function() {
 
@@ -8,7 +9,7 @@ describe('Round', function() {
   let allPlayers;
   let clue;
   beforeEach(function() {
-    round = new Round([1, 2, 3, 4], allPlayers);
+    round = new Round([1, 2, 3, 4], allPlayers, data);
     allPlayers = [{ name: 'jev', id: 1, score: 0 }, 
       { name: 'dem', id: 2, score: 0 }, 
       { name: 'hin', id: 3, score: 0 }];

@@ -30,14 +30,13 @@ import { domainToASCII } from 'url';
 //   console.log(prompt);
 // }
 
-// let data;
+let jeopardyData;
 
-// fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
-// .then(response => response.json())
-// .then(myData => {
-//   data = myData.data;
-//   console.log(data);
-// })
+fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data")
+  .then(response => response.json())
+  .then(myData => {
+    jeopardyData = myData.data;
+  });
 
 function turnPrompt(promptID, currentPlayerId, points) {
   const player = {
@@ -61,7 +60,7 @@ $(document).ready(function() {
     if ($('#player-one-input').val() !== "" && $('#player-two-input').val() !== "" && $('#player-three-input').val() !== "") {
       $(".main__entering-names-background").hide();
 
-      const game = new Game([$('#player-one-input').val(), $('#player-two-input').val(), $('#player-three-input').val()]);
+      const game = new Game([$('#player-one-input').val(), $('#player-two-input').val(), $('#player-three-input').val()], jeopardyData);
       domUpdates.updatePlayerNames(game);
 
       turnPrompt(100);
