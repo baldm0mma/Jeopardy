@@ -50,14 +50,19 @@ class Round {
     if (playerInput.toLowerCase() === clue.answer.toLowerCase()) {
       this.confirmCurrentPlayer().score += points;
       //invoke DOM update function to relfect game.playerX.score by passing this.confirmCurrentPlayer();
+      return {pId: this.confirmCurrentPlayer().id, pScore: this.confirmCurrentPlayer().score}
       console.log('player correct', this.confirmCurrentPlayer());
       // turnPrompt(102, this.currentTurn, points);
     } else {
+      var id = this.confirmCurrentPlayer().id;
       this.confirmCurrentPlayer().score -= points;
+      var score = this.confirmCurrentPlayer().score;
       //invoke DOM update function to relfect game.playerX.score by passing this.confirmCurrentPlayer();
       console.log('player incorrect', this.confirmCurrentPlayer());
       // turnPrompt(103, this.currentTurn, points);
       this.nextTurn();
+      return {pId: id, pScore: score}
+      
     }
   }
 }

@@ -51,7 +51,21 @@ function turnPrompt(promptID, currentPlayerId, points) {
     103: `The answer is wrong, you lost ${points} points ${player[currentPlayerId]}!`,
   }
 
-  $('.main__game-prompts').text(prompt[promptID])
+  // $('.main__game-prompts').text(prompt[promptID])
+
+  var pro = prompt[promptID];
+  $('.main__game-prompts').text("")
+  typeWriter()
+  var i = 1;
+  
+  function typeWriter() {
+    if (0 < pro.length) {
+      document.querySelector(".main__game-prompts").textContent += pro.charAt(i);
+      i++;
+      setTimeout(typeWriter, 30);
+    }
+  }
+
 }
 
 
@@ -67,11 +81,9 @@ $(document).ready(function() {
       let go = () => {
         turnPrompt(101, 1)
       };
-      setTimeout(go, 2000);
-      
+      setTimeout(go, 4000);
     }
   });
 
 });
 
-// export default turnPrompt;

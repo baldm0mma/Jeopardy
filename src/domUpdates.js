@@ -51,11 +51,15 @@ const domUpdates = {
     });
     $('#go-btn').click(function() {
       $('.main__game-your-answer-container').removeClass('slide-down');
-      game.round.validateCurrentAnswer($('.your-answer-input').val(), game.round.categoryClues[a][b]);
+      var currentPlayer = game.round.validateCurrentAnswer($('.your-answer-input').val(), game.round.categoryClues[a][b]);
       $('.your-answer-input').val("");
       $(el).html("");
+      console.log('conssss', currentPlayer);
+      document.querySelector('.player').innerHTML = (currentPlayer.pScore);
     });
   }
+
+
 };
 
 export default domUpdates;
