@@ -8,7 +8,7 @@ class Game {
     this.player2 = new Player(allNames[1], 2);
     this.player3 = new Player(allNames[2], 3);
     this.allPlayers = [this.player1, this.player2, this.player3];
-    this.round = new Round(this.generateRandomizedCategories(), this.allPlayers, data);
+    this.round = new Round(this.generateRandomizedCategories(), this.allPlayers, data, 1);
   }
 
   generateRandomizedCategories() {

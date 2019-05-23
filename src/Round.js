@@ -1,11 +1,11 @@
 // import turnPrompt from "./index"
 
 class Round {
-  constructor(randomCategories, allPlayers, data) {
+  constructor(randomCategories, allPlayers, data, roundNumber) {
     this.data = data;
     this.allPlayers = allPlayers;
     this.currentTurn = 1;
-    this.roundNumber = 1;
+    this.roundNumber = roundNumber;
     this.categoryTitles = this.generateCurrentCategoryTitle(randomCategories);
     this.categoryClues = this.generateCurrentCategoryClues(randomCategories);
   }
