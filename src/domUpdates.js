@@ -37,16 +37,24 @@ const domUpdates = {
   },
 
   selectClue(game) {
+    let a;
+    let b;
     $('.main__game-board').click(function(e) {
       const el = e.target;
-      const a = parseInt(el.dataset.if);
-      const b = parseInt(el.dataset.is);
+      a = parseInt(el.dataset.if);
+      b = parseInt(el.dataset.is);
+      console.log(game.round.categoryClues[a][b].answer);
       if ( !isNaN(a) && !isNaN(b)) {
         $(el).html(game.round.categoryClues[a][b].question)
         $(el).addClass('clue-class');
         $('.main__game-your-answer-container').addClass('slide-down');
       }
-    })
+    });
+    $('#go-btn').click(function() {
+      $('.main__game-your-answer-container').removeClass('slide-down');
+      // console.log('clickeeed')
+      game.round.validateCurrentAnswer($('.your-answer-input').val(), game.round.categoryClues[a][b]);
+    });
   }
 };
 
