@@ -1,9 +1,10 @@
-import data from "./dataset";
+// import data from "./data";
 // import turnPrompt from "./index"
 
 class Round {
-  constructor(randomCategories) {
+  constructor(randomCategories, allPlayers, data) {
     this.data = data;
+    this.allPlayers = allPlayers;
     this.roundNumber = 1;
     this.currentTurn = 1;
     this.categoryTitles = this.generateCurrentCategoryTitle(randomCategories);
@@ -12,22 +13,22 @@ class Round {
 
   generateCurrentCategoryTitle(randomCategories) {
     return randomCategories.map(category => {
-      return Object.keys(data.categories).find(key =>
-        data.categories[key] === category);
+      let final = Object.keys(this.data.categories).find(key =>
+        this.data.categories[key] === category);
+      return final.split(/(?=[A-Z])/).map(word => {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      }).join(' ');
     });
   }
 
   generateCurrentCategoryClues(randomCategories) {
     return randomCategories.map(category => {
-      const usableClues = data.clues.reduce((allClues, clue) => {
-        if (clue.categoryId === category) {
+      return this.data.clues.reduce((allClues, clue) => {
+        if (clue.categoryId === category && !allClues.map(clu => clu.pointValue).includes(clue.pointValue)) {
           allClues.push(clue);
         }
-        return allClues.filter((clue, index, finalClues) => {
-          return finalClues.map(mapClue => mapClue['pointValue']).indexOf(clue['pointValue']) === index;
-        });
+        return allClues;
       }, []);
-      return usableClues;
     });
   }
 
@@ -37,20 +38,24 @@ class Round {
     } else {
       this.currentTurn++;
     }
-    turnPrompt(101, this.currentTurn);
+    // turnPrompt(101, this.currentTurn);
   }
 
-  checkAnswer(currentPlayer, playerInput, clue) {
+  confirmCurrentPlayer() {
+    return this.allPlayers.find(player => player.id === this.currentTurn);
+  }
+
+  validateCurrentAnswer(playerInput, clue) {
     const points = clue.pointValue * this.roundNumber;
     if (playerInput.toLowerCase() === clue.answer.toLowerCase()) {
-      currentPlayer.score += points;
-      turnPrompt(102, this.currentTurn, points);
+      this.confirmCurrentPlayer().score += points;
+      // turnPrompt(102, this.currentTurn, points);
     } else {
-      currentPlayer.score -= points;
-      turnPrompt(103, this.currentTurn, points);
+      this.confirmCurrentPlayer().score -= points;
+      // turnPrompt(103, this.currentTurn, points);
+      this.nextTurn(); //look at this one...
     }
   }
-
 }
 
-export default Round;
+export default Round; 

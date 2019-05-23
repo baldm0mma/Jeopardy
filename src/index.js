@@ -4,6 +4,8 @@
 
 // An example of how you import jQuery into a JS file if you use jQuery in that file
 import $ from 'jquery';
+import fetch from 'cross-fetch';
+import data from './data'
 
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
@@ -28,6 +30,14 @@ import { domainToASCII } from 'url';
 //   console.log(prompt);
 // }
 
+let jeopardyData;
+
+fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data")
+  .then(response => response.json())
+  .then(myData => {
+    jeopardyData = myData.data;
+  });
+
 function turnPrompt(promptID, currentPlayerId, points) {
   const player = {
     1: $('#player-one-input').val(),
@@ -50,7 +60,7 @@ $(document).ready(function() {
     if ($('#player-one-input').val() !== "" && $('#player-two-input').val() !== "" && $('#player-three-input').val() !== "") {
       $(".main__entering-names-background").hide();
 
-      const game = new Game([$('#player-one-input').val(), $('#player-two-input').val(), $('#player-three-input').val()]);
+      const game = new Game([$('#player-one-input').val(), $('#player-two-input').val(), $('#player-three-input').val()], jeopardyData);
       domUpdates.updatePlayerNames(game);
 
       turnPrompt(100);
@@ -67,4 +77,4 @@ $(document).ready(function() {
   });
 });
 
-export default turnPrompt;
+// export default turnPrompt;

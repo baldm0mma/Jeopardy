@@ -9,7 +9,7 @@ describe('Game', function() {
 
   let game;
   beforeEach(function() {
-    game = new Game(['Jev', 'DeMarcus', 'Hindreen']);
+    game = new Game(['Jev', 'DeMarcus', 'Hindreen'], data);
   });
 
   it('should be a function', function() {
