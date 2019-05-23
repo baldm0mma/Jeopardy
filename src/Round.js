@@ -1,3 +1,5 @@
+import domUpdates from "./domUpdates";
+
 // import turnPrompt from "./index"
 
 class Round {
@@ -49,12 +51,12 @@ class Round {
     console.log('clue', clue)
     if (playerInput.toLowerCase() === clue.answer.toLowerCase()) {
       this.confirmCurrentPlayer().score += points;
-      //invoke DOM update function to relfect game.playerX.score by passing this.confirmCurrentPlayer();
+      domUpdates.updateScore(this.confirmCurrentPlayer())
       console.log('player correct', this.confirmCurrentPlayer());
       // turnPrompt(102, this.currentTurn, points);
     } else {
       this.confirmCurrentPlayer().score -= points;
-      //invoke DOM update function to relfect game.playerX.score by passing this.confirmCurrentPlayer();
+      domUpdates.updateScore(this.confirmCurrentPlayer())
       console.log('player incorrect', this.confirmCurrentPlayer());
       // turnPrompt(103, this.currentTurn, points);
       this.nextTurn();

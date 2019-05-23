@@ -55,6 +55,10 @@ const domUpdates = {
       $('.your-answer-input').val("");
       $(el).html("");
     });
+  },
+
+  updateScore(player){
+    $(`#player-${player.id}-value`).text(player.score)
   }
 };
 

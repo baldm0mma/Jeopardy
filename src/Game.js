@@ -22,7 +22,7 @@ class Game {
   }
 
   restartGame() {
-    
+  
   }
 }
 
