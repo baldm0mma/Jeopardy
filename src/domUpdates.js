@@ -37,10 +37,9 @@ const domUpdates = {
   },
 
   selectClue(game) {
-    let a;
-    let b;
+    let a, b, el;
     $('.main__game-board').click(function(e) {
-      const el = e.target;
+      el = e.target;
       a = parseInt(el.dataset.if);
       b = parseInt(el.dataset.is);
       console.log(game.round.categoryClues[a][b].answer);
@@ -52,8 +51,9 @@ const domUpdates = {
     });
     $('#go-btn').click(function() {
       $('.main__game-your-answer-container').removeClass('slide-down');
-      // console.log('clickeeed')
       game.round.validateCurrentAnswer($('.your-answer-input').val(), game.round.categoryClues[a][b]);
+      $('.your-answer-input').val("");
+      $(el).html("");
     });
   }
 };
