@@ -57,11 +57,7 @@ class Round {
       //invoke DOM update function to relfect game.playerX.score by passing this.confirmCurrentPlayer();
       console.log('player incorrect', this.confirmCurrentPlayer());
       // turnPrompt(103, this.currentTurn, points);
-<<<<<<< HEAD
-      this.nextTurn(); //look at this one...
-=======
       this.nextTurn();
->>>>>>> 880d8d72c41d7ad45df6a3f80dd2b9b70c17f1b3
     }
   }
 }
