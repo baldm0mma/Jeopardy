@@ -4,8 +4,8 @@ class Round {
   constructor(randomCategories, allPlayers, data) {
     this.data = data;
     this.allPlayers = allPlayers;
-    this.roundNumber = 1;
     this.currentTurn = 1;
+    this.roundNumber = 1;
     this.categoryTitles = this.generateCurrentCategoryTitle(randomCategories);
     this.categoryClues = this.generateCurrentCategoryClues(randomCategories);
   }
@@ -40,6 +40,10 @@ class Round {
     // turnPrompt(101, this.currentTurn);
   }
 
+  nextRound() {
+    this.roundNumber++;
+  }
+
   confirmCurrentPlayer() {
     return this.allPlayers.find(player => player.id === this.currentTurn);
   }
@@ -60,6 +64,11 @@ class Round {
       this.nextTurn();
     }
   }
+
+  generateDailyDoublePosition() {
+    return [Math.floor(Math.random() * (4)), Math.floor(Math.random() * (4))];
+  }
+
 }
 
 export default Round; 
