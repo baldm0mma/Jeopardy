@@ -23,7 +23,8 @@ body {
   color: $yellow;
   font-family: 'Macondo Swash Caps', cursive;
   font-size: 38px;
-  margin: 20px;
+  left: 30px;
+  bottom: 20px;
   position: absolute;
 }
 
@@ -101,26 +102,24 @@ body {
   font-size: 20px;
 } 
 
-// part two of the dome > Game part
 
 .main__game-background {
   width: 100%;
-  // height: 100vh;
-  border: 1px solid transparent
+
 }
 
 .main__game-board-container {
-  width: 800px;
+  width: 90%;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 80px;
   border-radius: 4px;
 }
 
 .main__game-board {
   border: 1px solid #000;
   width: 100%;
-  height: 450px;
+  height: 550px;
 }
 table {
   border-collapse: collapse;
@@ -128,22 +127,25 @@ table {
 }
 tr {
   width: 100%;
-  height: 20%;
+  
   background-color: $dark-blue;
 }
 
 th, td {
-  border: 2px solid black;
+  border: 2px solid gray;
 }
 th {
-  color: #fff;
+  color: $yellow;
   padding: 10px;
+  height: 15%;
 }
 
 td {
   color: $yellow;
-  font-size: 30px;
+  font-size: 50px;
+  font-weight: bold;
   text-align: center;
+  height: 21.25%;
 }
 
 .clue-class {
@@ -170,7 +172,8 @@ td {
   width: 100%;
   transform: translateY(-43px);
   position: absolute;
-  width: 800px;
+  width: 90%;
+  max-width: 1000px;
   z-index: -1;
   transition: 0.2s;
 }
@@ -183,7 +186,7 @@ td {
 
 .your-answer-input,
 .your-daily-double-input {
-  width: 240px;
+  width: 275px;
   height: 27px;
   margin-left: 17px;
   padding-left: 10px;
@@ -193,7 +196,7 @@ td {
 }
 
 #go-btn {
-  width: 240px;
+  width: 275px;
   height: 27px;
   margin-top: 12px;
   margin-left: 17px;
@@ -205,15 +208,17 @@ td {
 
 .main__players-container {
   width: 100%;
-  height: 120px;
-  position: absolute;
+  height: 90px;
   bottom: 0;
   display: flex;
   justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .main__players {
-  width: 800px;
+  width: 90%;
+  max-width: 1000px;
   height: 100%;
   display: flex;
   justify-content: space-between;
@@ -221,7 +226,7 @@ td {
 
 .main__players-player-value {
   border: #000 1px solid;
-  width: 25%;
+  width: 30%;
   height: 70px;
   position: relative;
   text-align: center;
