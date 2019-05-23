@@ -33,33 +33,35 @@ const domUpdates = {
     $('.main__game-data-2-4').text(game.round.categoryClues[1][3].pointValue);
     $('.main__game-data-3-4').text(game.round.categoryClues[2][3].pointValue);
     $('.main__game-data-4-4').text(game.round.categoryClues[3][3].pointValue);
-    domUpdates.selectClue(game)
+    domUpdates.selectClue(game);
   },
 
   selectClue(game) {
     let a, b, el;
+    let dailyDouble = game.round.generateDailyDoublePosition();
+    //how will we show the daily double info on the DOM?
     $('.main__game-board').click(function(e) {
       el = e.target;
       a = parseInt(el.dataset.if);
       b = parseInt(el.dataset.is);
-      console.log(game.round.categoryClues[a][b].answer);
       if ( !isNaN(a) && !isNaN(b)) {
-        $(el).html(game.round.categoryClues[a][b].question)
+        $(el).html(game.round.categoryClues[a][b].question);
         $(el).addClass('clue-class');
         $('.main__game-your-answer-container').addClass('slide-down');
       }
     });
     $('#go-btn').click(function() {
       $('.main__game-your-answer-container').removeClass('slide-down');
-      game.round.validateCurrentAnswer($('.your-answer-input').val(), game.round.categoryClues[a][b]);
+      game.round.validateCurrentAnswer($('.your-answer-input').val(), game.round.categoryClues[a][b], [a, b]);
       $('.your-answer-input').val("");
       $(el).html("");
     });
   },
 
   updateScore(player){
-    $(`#player-${player.id}-value`).text(player.score)
+    $(`#player-${player.id}-value`).text(player.score);
   }
+
 };
 
 export default domUpdates;
