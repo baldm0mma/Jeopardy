@@ -52,8 +52,8 @@ const domUpdates = {
     });
     $('#go-btn').click(function() {
       $('.main__game-your-answer-container').removeClass('slide-down');
-      // console.log('clickeeed')
       game.round.validateCurrentAnswer($('.your-answer-input').val(), game.round.categoryClues[a][b]);
+      $('.your-answer-input').val("");
     });
   }
 };
