@@ -43,7 +43,6 @@ const domUpdates = {
       a = parseInt(el.dataset.if);
       b = parseInt(el.dataset.is);
       // console.log(game.round.categoryClues[a][b].answer);
-      console.log($(el).attr('class'))
       if ( !isNaN(a) && !isNaN(b) && $(el).attr('class') !== 'done') {
         $(el).html(game.round.categoryClues[a][b].question)
         $(el).addClass('clue-class');
@@ -52,7 +51,6 @@ const domUpdates = {
     });
 
     $('#go-btn').click(function() {
-      console.log(el);
       $('.main__game-your-answer-container').removeClass('slide-down');
       game.round.validateCurrentAnswer($('.your-answer-input').val(), game.round.categoryClues[a][b]);
       $('.your-answer-input').val("");
