@@ -77,25 +77,23 @@ const domUpdates = {
       103: `The answer is wrong, you lost ${points} points, ${player[currentPlayerId]}!`,
     }
 
-    var pro = prompt[promptID];
+    const pro = prompt[promptID];
 
     $('.main__game-prompts').text("")
     typeWriter()
     var i = 1;
-  
     function typeWriter() {
       if (0 < pro.length) {
-        document.querySelector(".main__game-prompts").textContent += pro.charAt(i);
+        $(".main__game-prompts").append(pro.charAt(i))
+
         i++;
         setTimeout(typeWriter, 15);
       }
     }
     $('.main__players-player-name').removeClass('players-turn');
     $('.main__players-player-value').removeClass('players-turn-border');
-    
-    
-    $(`.player-${player[currentPlayerId]}-name`).addClass('players-turn');
-    $(`.player-${player[currentPlayerId]}-container`).addClass('players-turn-border');
+    $(`.player-${currentPlayerId}-name`).addClass('players-turn');
+    $(`.player-${currentPlayerId}-container`).addClass('players-turn-border');
   }
 
 };

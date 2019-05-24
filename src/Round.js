@@ -11,9 +11,9 @@ class Round {
   }
 
   startingPrompt() {
-    let welcome = () => {domUpdates.turnPrompt(99)};
+    let welcome = () => domUpdates.turnPrompt(99);
     setTimeout(welcome, 500);
-    let firstPlayerStart = () => {domUpdates.turnPrompt(98, this.currentTurn)};
+    let firstPlayerStart = () => domUpdates.turnPrompt(98, this.currentTurn);
     setTimeout(firstPlayerStart, 3000);
   }
 
