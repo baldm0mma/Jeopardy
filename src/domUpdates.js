@@ -50,6 +50,7 @@ const domUpdates = {
         $('.main__game-your-answer-container').addClass('slide-down');
       }
     });
+
     $('#go-btn').click(function() {
       $('.main__game-your-answer-container').removeClass('slide-down');
       game.round.validateCurrentAnswer($('.your-answer-input').val(), game.round.categoryClues[a][b], [a, b]);
@@ -58,8 +59,43 @@ const domUpdates = {
     });
   },
 
-  updateScore(player){
+  updateScore(player) {
     $(`#player-${player.id}-value`).text(player.score);
+  },
+
+  turnPrompt(promptID, currentPlayerId, points) {
+    const player = {
+      1: $('#player-one-input').val(),
+      2: $('#player-two-input').val(),
+      3: $('#player-three-input').val(),
+    };
+    const prompt = {
+      98: `${player[1]}, you are kicking off the game! choose your first question and good luck`,
+      99: `Welcome to Jeopardy ${player[1]}, ${player[2]} and ${player[3]}, enjoy the game!`,
+      100: `${player[currentPlayerId]}, it's your turn again, choose another questin!`,
+      101: `${player[currentPlayerId]} it's your turn, choose a question!`,
+      102: `The answer is correct, you earned ${points} points, ${player[currentPlayerId]}!`,
+      103: `The answer is wrong, you lost ${points} points, ${player[currentPlayerId]}!`,
+    }
+
+    var pro = prompt[promptID];
+
+    $('.main__game-prompts').text("")
+    typeWriter()
+    var i = 1;
+  
+    function typeWriter() {
+      if (0 < pro.length) {
+        document.querySelector(".main__game-prompts").textContent += pro.charAt(i);
+        i++;
+        setTimeout(typeWriter, 15);
+      }
+    }
+    let id = player[currentPlayerId];
+    $('.main__players-player-name').removeClass('players-turn');
+    $('.main__players-player-value').removeClass('players-turn-border');
+    $(`.player-${id}-name`).addClass('players-turn');
+    $(`.player-${id}-container`).addClass('players-turn-border');
   }
 
 };
