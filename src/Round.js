@@ -6,6 +6,7 @@ class Round {
     this.allPlayers = allPlayers;
     this.currentTurn = 1;
     this.roundNumber = roundNumber || 1;
+    this.questionCounter = 16;
     this.categoryTitles = this.generateCurrentCategoryTitle(randomCategories);
     this.categoryClues = this.generateCurrentCategoryClues(randomCategories);
     this.dailyDouble = this.generateDailyDoublePosition();
