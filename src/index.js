@@ -45,6 +45,7 @@ $(document).ready(function() {
       const game = new Game([$('#player-one-input').val(), $('#player-two-input').val(), $('#player-three-input').val()], jeopardyData);
       domUpdates.updatePlayerNames(game);
     }
+    
   });
 
 });

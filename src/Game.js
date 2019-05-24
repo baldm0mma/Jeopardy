@@ -1,6 +1,7 @@
 import Round from "./Round";
 import Player from "./Player";
 import domUpdates from "./domUpdates";
+import FinalRound from "./FinalRound";
 
 class Game {
   constructor(allNames, data) {
@@ -26,6 +27,10 @@ class Game {
   createNextRound(game) {
     this.round = new Round(this.generateRandomizedCategories(), this.allPlayers, this.data, 2);
     domUpdates.populateCatagories(game);
+  }
+
+  createFinalRound() {
+    this.round = new FinalRound([this.categories[0]], this.allPlayers, this.data);
   }
 
   restartGame() {

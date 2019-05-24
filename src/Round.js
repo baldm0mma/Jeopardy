@@ -72,6 +72,10 @@ class Round {
     }
   }
 
+  calculateDailyDoubleWager() {
+    
+  }
+
   generateDailyDoublePosition() {
     let dailyDouble = [];
     for (let i = 0; i < this.roundNumber; i++) {
