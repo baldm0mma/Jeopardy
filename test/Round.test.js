@@ -59,10 +59,10 @@ describe('Round', function() {
 
   it('should have a method that validates the current answer, and updates points accordingly', function() {
     expect(round.allPlayers[0].score).to.equal(0);
-    round.validateCurrentAnswer("Six Feet Under", clue);
+    round.validateCurrentAnswer("Six Feet Under", clue, [1, 1]);
     expect(round.allPlayers[0].score).to.equal(300);
 
-    round.validateCurrentAnswer("I dunno", clue);
+    round.validateCurrentAnswer("I dunno", clue), [1, 1];
     expect(round.allPlayers[0].score).to.equal(0);
   });
 
