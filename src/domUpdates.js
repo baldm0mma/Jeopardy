@@ -42,8 +42,9 @@ const domUpdates = {
       el = e.target;
       a = parseInt(el.dataset.if);
       b = parseInt(el.dataset.is);
-      console.log(game.round.categoryClues[a][b].answer);
-      if ( !isNaN(a) && !isNaN(b)) {
+      // console.log(game.round.categoryClues[a][b].answer);
+      console.log($(el).attr('class'))
+      if ( !isNaN(a) && !isNaN(b) && $(el).attr('class') !== 'done') {
         $(el).html(game.round.categoryClues[a][b].question)
         $(el).addClass('clue-class');
         $('.main__game-your-answer-container').addClass('slide-down');
@@ -51,10 +52,12 @@ const domUpdates = {
     });
 
     $('#go-btn').click(function() {
+      console.log(el);
       $('.main__game-your-answer-container').removeClass('slide-down');
       game.round.validateCurrentAnswer($('.your-answer-input').val(), game.round.categoryClues[a][b]);
       $('.your-answer-input').val("");
       $(el).html("");
+      $(el).attr('class', 'done')
     });
   },
 
@@ -85,7 +88,6 @@ const domUpdates = {
     function typeWriter() {
       if (0 < pro.length) {
         $(".main__game-prompts").append(pro.charAt(i))
-
         i++;
         setTimeout(typeWriter, 15);
       }

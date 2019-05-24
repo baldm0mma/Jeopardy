@@ -42,11 +42,8 @@ $(document).ready(function() {
   $(".start-btn").click(function() {
     if ($('#player-one-input').val() !== "" && $('#player-two-input').val() !== "" && $('#player-three-input').val() !== "") {
       $(".main__entering-names-background").hide();
-
       const game = new Game([$('#player-one-input').val(), $('#player-two-input').val(), $('#player-three-input').val()], jeopardyData);
       domUpdates.updatePlayerNames(game);
-
-
     }
   });
 
