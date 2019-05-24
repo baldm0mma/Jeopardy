@@ -3,13 +3,14 @@ import domUpdates from "./domUpdates";
 // import turnPrompt from "./index"
 
 class Round {
-  constructor(randomCategories, allPlayers, data) {
+  constructor(randomCategories, allPlayers, data, roundNumber) {
     this.data = data;
     this.allPlayers = allPlayers;
-    this.roundNumber = 1;
     this.currentTurn = 1;
+    this.roundNumber = roundNumber || 1;
     this.categoryTitles = this.generateCurrentCategoryTitle(randomCategories);
     this.categoryClues = this.generateCurrentCategoryClues(randomCategories);
+    this.dailyDouble = this.generateDailyDoublePosition();
   }
 
   generateCurrentCategoryTitle(randomCategories) {
@@ -46,22 +47,28 @@ class Round {
     return this.allPlayers.find(player => player.id === this.currentTurn);
   }
 
-  validateCurrentAnswer(playerInput, clue) {
-    const points = clue.pointValue * this.roundNumber;
-    console.log('clue', clue)
+  validateCurrentAnswer(playerInput, clue, indecies) {
+    const points = clue.pointValue * this.roundNumber * (this.dailyDouble[0] === indecies[0] && this.dailyDouble[1] === indecies[1] ? 2 : 1); 
     if (playerInput.toLowerCase() === clue.answer.toLowerCase()) {
       this.confirmCurrentPlayer().score += points;
       domUpdates.updateScore(this.confirmCurrentPlayer())
-      console.log('player correct', this.confirmCurrentPlayer());
       // turnPrompt(102, this.currentTurn, points);
     } else {
       this.confirmCurrentPlayer().score -= points;
       domUpdates.updateScore(this.confirmCurrentPlayer())
-      console.log('player incorrect', this.confirmCurrentPlayer());
       // turnPrompt(103, this.currentTurn, points);
       this.nextTurn();
     }
   }
+
+  generateDailyDoublePosition() {
+    let dailyDouble = [];
+    for (let i = 0; i < this.roundNumber; i++) {
+      dailyDouble.push(Math.floor(Math.random() * 4), Math.floor(Math.random() * 4));
+    }
+    return dailyDouble;
+  }
+
 }
 
-export default Round; 
+export default Round;
