@@ -90,12 +90,11 @@ const domUpdates = {
         setTimeout(typeWriter, 15);
       }
     }
+    let id = player[currentPlayerId];
     $('.main__players-player-name').removeClass('players-turn');
     $('.main__players-player-value').removeClass('players-turn-border');
-    
-    
-    $(`.player-${player[currentPlayerId]}-name`).addClass('players-turn');
-    $(`.player-${player[currentPlayerId]}-container`).addClass('players-turn-border');
+    $(`.player-${id}-name`).addClass('players-turn');
+    $(`.player-${id}-container`).addClass('players-turn-border');
   }
 
 };
