@@ -46,7 +46,6 @@ class Round {
     } else {
       this.currentTurn++;
     }
-    // index.turnPrompt(101, this.currentTurn);
   }
 
   confirmCurrentPlayer() {
@@ -56,20 +55,15 @@ class Round {
 
   validateCurrentAnswer(playerInput, clue, indecies) {
     const points = clue.pointValue * this.roundNumber * (this.dailyDouble[0] === indecies[0] && this.dailyDouble[1] === indecies[1] ? 2 : 1);
-    // console.log('clue', clue)
     if (playerInput.toLowerCase() === clue.answer.toLowerCase()) {
       this.confirmCurrentPlayer().score += points;
       domUpdates.updateScore(this.confirmCurrentPlayer())
-      // console.log('player correct', this.confirmCurrentPlayer());
       domUpdates.turnPrompt(102, this.currentTurn, points);
-      let go = () => {domUpdates.turnPrompt(100, this.currentTurn, points);};
+      let go = () => domUpdates.turnPrompt(100, this.currentTurn, points);
       setTimeout(go, 3000);
-
-
     } else {
       this.confirmCurrentPlayer().score -= points;
       domUpdates.updateScore(this.confirmCurrentPlayer())
-      // console.log('player incorrect', this.confirmCurrentPlayer());
       domUpdates.turnPrompt(103, this.currentTurn, points);
       let go = () => domUpdates.turnPrompt(101, this.currentTurn, points);
       setTimeout(go, 3000);
