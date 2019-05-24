@@ -1,14 +1,16 @@
 import Round from "./Round";
 import Player from "./Player";
+import domUpdates from "./domUpdates";
 
 class Game {
   constructor(allNames, data) {
+    this.data = data;
     this.categories = Object.values(data.categories);
     this.player1 = new Player(allNames[0], 1);
     this.player2 = new Player(allNames[1], 2);
     this.player3 = new Player(allNames[2], 3);
     this.allPlayers = [this.player1, this.player2, this.player3];
-    this.round = new Round(this.generateRandomizedCategories(), this.allPlayers, data, 1);
+    this.round = new Round(this.generateRandomizedCategories(), this.allPlayers, this.data, 1);
   }
 
   generateRandomizedCategories() {
@@ -19,6 +21,11 @@ class Game {
       this.categories[z] = temp;
     }
     return this.categories.splice(0, 4);
+  }
+
+  createNextRound(game) {
+    this.round = new Round(this.generateRandomizedCategories(), this.allPlayers, this.data, 2);
+    domUpdates.populateCatagories(game);
   }
 
   restartGame() {
