@@ -44,8 +44,9 @@ const domUpdates = {
       el = e.target;
       a = parseInt(el.dataset.if);
       b = parseInt(el.dataset.is);
-      if ( !isNaN(a) && !isNaN(b)) {
-        $(el).html(game.round.categoryClues[a][b].question);
+      // console.log(game.round.categoryClues[a][b].answer);
+      if ( !isNaN(a) && !isNaN(b) && $(el).attr('class') !== 'done') {
+        $(el).html(game.round.categoryClues[a][b].question)
         $(el).addClass('clue-class');
         $('.main__game-your-answer-container').addClass('slide-down');
       }
@@ -56,6 +57,7 @@ const domUpdates = {
       game.round.validateCurrentAnswer($('.your-answer-input').val(), game.round.categoryClues[a][b], [a, b]);
       $('.your-answer-input').val("");
       $(el).html("");
+      $(el).attr('class', 'done')
     });
   },
 
@@ -78,15 +80,14 @@ const domUpdates = {
       103: `The answer is wrong, you lost ${points} points, ${player[currentPlayerId]}!`,
     }
 
-    var pro = prompt[promptID];
+    const pro = prompt[promptID];
 
     $('.main__game-prompts').text("")
     typeWriter()
     var i = 1;
-  
     function typeWriter() {
       if (0 < pro.length) {
-        document.querySelector(".main__game-prompts").textContent += pro.charAt(i);
+        $(".main__game-prompts").append(pro.charAt(i))
         i++;
         setTimeout(typeWriter, 15);
       }
