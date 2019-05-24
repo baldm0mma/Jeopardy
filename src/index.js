@@ -38,23 +38,6 @@ fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data")
     jeopardyData = myData.data;
   });
 
-function turnPrompt(promptID, currentPlayerId, points) {
-  const player = {
-    1: $('#player-one-input').val(),
-    2: $('#player-two-input').val(),
-    3: $('#player-three-input').val(),
-  };
-  const prompt = {
-    100: `Welcome to the Jeopardy, ${player[1]}, ${player[2]} and ${player[3]}. Enjoy the game!`,
-    101: `${player[currentPlayerId]} it's your turn, chose a question and good luck!`,
-    102: `The answer is correct, you earned ${points} points ${player[currentPlayerId]}!`,
-    103: `The answer is wrong, you lost ${points} points ${player[currentPlayerId]}!`,
-  }
-
-  $('.main__game-prompts').text(prompt[promptID])
-}
-
-
 $(document).ready(function() {
   $(".start-btn").click(function() {
     if ($('#player-one-input').val() !== "" && $('#player-two-input').val() !== "" && $('#player-three-input').val() !== "") {
@@ -63,15 +46,9 @@ $(document).ready(function() {
       const game = new Game([$('#player-one-input').val(), $('#player-two-input').val(), $('#player-three-input').val()], jeopardyData);
       domUpdates.updatePlayerNames(game);
 
-      turnPrompt(100);
-      let go = () => {
-        turnPrompt(101, 1)
-      };
-      setTimeout(go, 2000);
-      
+
     }
   });
 
 });
 
-// export default turnPrompt;

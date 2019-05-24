@@ -1,7 +1,5 @@
 import domUpdates from "./domUpdates";
 
-// import turnPrompt from "./index"
-
 class Round {
   constructor(randomCategories, allPlayers, data) {
     this.data = data;
@@ -12,7 +10,15 @@ class Round {
     this.categoryClues = this.generateCurrentCategoryClues(randomCategories);
   }
 
+  startingPrompt() {
+    let welcome = () => {domUpdates.turnPrompt(99)};
+    setTimeout(welcome, 500);
+    let firstPlayerStart = () => {domUpdates.turnPrompt(98, this.currentTurn)};
+    setTimeout(firstPlayerStart, 3000);
+  }
+
   generateCurrentCategoryTitle(randomCategories) {
+    this.startingPrompt();
     return randomCategories.map(category => {
       let final = Object.keys(this.data.categories).find(key =>
         this.data.categories[key] === category);
@@ -39,7 +45,7 @@ class Round {
     } else {
       this.currentTurn++;
     }
-    // turnPrompt(101, this.currentTurn);
+    // index.turnPrompt(101, this.currentTurn);
   }
 
   confirmCurrentPlayer() {
@@ -48,17 +54,23 @@ class Round {
 
   validateCurrentAnswer(playerInput, clue) {
     const points = clue.pointValue * this.roundNumber;
-    console.log('clue', clue)
+    // console.log('clue', clue)
     if (playerInput.toLowerCase() === clue.answer.toLowerCase()) {
       this.confirmCurrentPlayer().score += points;
       domUpdates.updateScore(this.confirmCurrentPlayer())
-      console.log('player correct', this.confirmCurrentPlayer());
-      // turnPrompt(102, this.currentTurn, points);
+      // console.log('player correct', this.confirmCurrentPlayer());
+      domUpdates.turnPrompt(102, this.currentTurn, points);
+      let go = () => {domUpdates.turnPrompt(100, this.currentTurn, points);};
+      setTimeout(go, 3000);
+
+
     } else {
       this.confirmCurrentPlayer().score -= points;
       domUpdates.updateScore(this.confirmCurrentPlayer())
-      console.log('player incorrect', this.confirmCurrentPlayer());
-      // turnPrompt(103, this.currentTurn, points);
+      // console.log('player incorrect', this.confirmCurrentPlayer());
+      domUpdates.turnPrompt(103, this.currentTurn, points);
+      let go = () => domUpdates.turnPrompt(101, this.currentTurn, points);
+      setTimeout(go, 3000);
       this.nextTurn();
     }
   }
