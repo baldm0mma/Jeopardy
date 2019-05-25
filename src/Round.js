@@ -55,8 +55,8 @@ class Round {
 
 
   validateCurrentAnswer(playerInput, clue, indecies, dailyDoubleWager) {
-    const dailyDoubleCheck = this.dailyDouble[0] === indecies[0] && this.dailyDouble[1] === indecies[1] ? true : false;
-    const points = dailyDoubleCheck ? dailyDoubleWager : this.calculateRegularPoints(clue);
+    const dailyDoubleChecker = this.dailyDouble[0] === indecies[0] && this.dailyDouble[1] === indecies[1] ? true : false;
+    const points = dailyDoubleChecker ? dailyDoubleWager : this.calculateRegularPoints(clue);
     if (playerInput.toLowerCase() === clue.answer.toLowerCase()) {
       this.confirmCurrentPlayer().score += points;
       domUpdates.updateScore(this.confirmCurrentPlayer())
