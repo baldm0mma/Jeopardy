@@ -1,13 +1,15 @@
 import domUpdates from "./domUpdates";
 
 class Round {
-  constructor(randomCategories, allPlayers, data) {
+  constructor(randomCategories, allPlayers, data, roundNumber) {
     this.data = data;
     this.allPlayers = allPlayers;
-    this.roundNumber = 1;
     this.currentTurn = 1;
+    this.roundNumber = roundNumber || 1;
+    this.questionCounter = 16;
     this.categoryTitles = this.generateCurrentCategoryTitle(randomCategories);
     this.categoryClues = this.generateCurrentCategoryClues(randomCategories);
+    this.dailyDouble = this.generateDailyDoublePosition();
   }
 
   startingPrompt() {
@@ -45,35 +47,44 @@ class Round {
     } else {
       this.currentTurn++;
     }
-    // index.turnPrompt(101, this.currentTurn);
   }
 
   confirmCurrentPlayer() {
     return this.allPlayers.find(player => player.id === this.currentTurn);
   }
 
-  validateCurrentAnswer(playerInput, clue) {
-    const points = clue.pointValue * this.roundNumber;
-    // console.log('clue', clue)
+
+  validateCurrentAnswer(playerInput, clue, indecies, dailyDoubleWager) {
+    const dailyDoubleChecker = this.dailyDouble[0] === indecies[0] && this.dailyDouble[1] === indecies[1] ? true : false;
+    const points = dailyDoubleChecker ? dailyDoubleWager : this.calculateRegularPoints(clue);
     if (playerInput.toLowerCase() === clue.answer.toLowerCase()) {
       this.confirmCurrentPlayer().score += points;
       domUpdates.updateScore(this.confirmCurrentPlayer())
-      // console.log('player correct', this.confirmCurrentPlayer());
       domUpdates.turnPrompt(102, this.currentTurn, points);
-      let go = () => {domUpdates.turnPrompt(100, this.currentTurn, points);};
+      let go = () => domUpdates.turnPrompt(100, this.currentTurn, points);
       setTimeout(go, 3000);
-
-
     } else {
       this.confirmCurrentPlayer().score -= points;
       domUpdates.updateScore(this.confirmCurrentPlayer())
-      // console.log('player incorrect', this.confirmCurrentPlayer());
       domUpdates.turnPrompt(103, this.currentTurn, points);
       let go = () => domUpdates.turnPrompt(101, this.currentTurn, points);
       setTimeout(go, 3000);
       this.nextTurn();
     }
   }
+
+  calculateRegularPoints(clue) {
+    return clue.pointValue * this.roundNumber;
+  }
+
+  generateDailyDoublePosition() {
+    let dailyDouble = [];
+    for (let i = 0; i < this.roundNumber; i++) {
+      dailyDouble.push(Math.floor(Math.random() * 4), Math.floor(Math.random() * 4));
+    }
+    return dailyDouble;
+  }
+
 }
 
-export default Round; 
+export default Round;

@@ -9,7 +9,7 @@ describe('Round', function() {
   let allPlayers;
   let clue;
   beforeEach(function() {
-    round = new Round([1, 2, 3, 4], allPlayers, data);
+    round = new Round([1, 2, 3, 4], allPlayers, data, 1);
     allPlayers = [{ name: 'jev', id: 1, score: 0 }, 
       { name: 'dem', id: 2, score: 0 }, 
       { name: 'hin', id: 3, score: 0 }];
@@ -31,6 +31,10 @@ describe('Round', function() {
 
   it('should have a access to all three instances of the current players', function() {
     expect(round.allPlayers).to.have.lengthOf(3);
+  });
+
+  it('should have a turn number that begins with 1', function() {
+    expect(round.roundNumber).to.equal(1);
   });
 
   it('should have a round number that begins with 1', function() {
@@ -55,10 +59,16 @@ describe('Round', function() {
 
   it('should have a method that validates the current answer, and updates points accordingly', function() {
     expect(round.allPlayers[0].score).to.equal(0);
-    round.validateCurrentAnswer("Six Feet Under", clue);
+    round.validateCurrentAnswer("Six Feet Under", clue, [1, 1]);
     expect(round.allPlayers[0].score).to.equal(300);
 
-    round.validateCurrentAnswer("I dunno", clue);
+    round.validateCurrentAnswer("I dunno", clue), [1, 1];
     expect(round.allPlayers[0].score).to.equal(0);
+  });
+
+  it('should have a method that returns a random array of numbers, 0-3, with which to target the current round\'s daily double', function() {
+    expect(round.generateDailyDoublePosition()).to.have.lengthOf(2);
+    let round2 = new Round([1, 2, 3, 4], allPlayers, data, 2);
+    expect(round2.generateDailyDoublePosition()).to.have.lengthOf(4);
   });
 });
