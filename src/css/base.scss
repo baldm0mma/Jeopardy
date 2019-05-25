@@ -81,8 +81,27 @@ body {
   font-size: 20px;
   height: 35px;
   padding-top: 5px;
-  width: 150px;
   width: 250px;
+}
+
+.restart-btn {
+  background-color: rgba(242, 292, 39, 0.15);
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(0,0,0,0.2);
+  font-size: 20px;
+  height: 35px;
+  padding-top: 5px;
+  width: 150px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.restart-btn:hover {
+  background-color: $yellow;
+  border: 1px solid #fff;
+  color: $dark-blue;
 }
 
 .yellow-text {
@@ -147,7 +166,7 @@ th {
   color: $yellow;
   padding: 10px;
   height: 15%;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 td {
@@ -160,18 +179,18 @@ td {
 
 .clue-class {
   color: #fff;
-  font-size: 12px;
+  font-size: 16px;
   padding-left: 5px;
   text-align: left;
 }
 
 .main__game-prompts {
-  height: 35px;
+  height: 40px;
   background-color: #000;
   color: #fff;
   padding-left: 10px;
   padding-top: 11px;
-  font-size: 13px;
+  font-size: 18px;
   border-left: 2px solid #B5B5B5;
   border-right: 2px solid #B5B5B5;
 };
