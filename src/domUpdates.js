@@ -56,7 +56,7 @@ const domUpdates = {
     $('#go-btn').click(function() {
       $('.main__game-your-answer-container').removeClass('slide-down');
       dailyDouble;
-      game.round.validateCurrentAnswer($('.your-answer-input').val(), game.round.categoryClues[a][b], [a, b]);
+      game.round.validateCurrentAnswer($('.your-answer-input').val(), game.round.categoryClues[a][b], [a, b], $('.daily-double-wager').val());
       $('.your-answer-input').val("");
       $(el).html("");
       $(el).attr('data-done', 'done');

@@ -54,8 +54,9 @@ class Round {
   }
 
 
-  validateCurrentAnswer(playerInput, clue, indecies) {
-    const points = clue.pointValue * this.roundNumber * (this.dailyDouble[0] === indecies[0] && this.dailyDouble[1] === indecies[1] ? 2 : 1);
+  validateCurrentAnswer(playerInput, clue, indecies, dailyDoubleWager) {
+    const dailyDoubleChecker = this.dailyDouble[0] === indecies[0] && this.dailyDouble[1] === indecies[1] ? true : false;
+    const points = dailyDoubleChecker ? dailyDoubleWager : this.calculateRegularPoints(clue);
     if (playerInput.toLowerCase() === clue.answer.toLowerCase()) {
       this.confirmCurrentPlayer().score += points;
       domUpdates.updateScore(this.confirmCurrentPlayer())
@@ -72,8 +73,8 @@ class Round {
     }
   }
 
-  calculateDailyDoubleWager() {
-    
+  calculateRegularPoints(clue) {
+    return clue.pointValue * this.roundNumber;
   }
 
   generateDailyDoublePosition() {
