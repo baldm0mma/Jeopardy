@@ -80,8 +80,10 @@ const domUpdates = {
       3: $('#player-three-input').val(),
     };
     const prompt = {
+      96: `${player[currentPlayerId]}, choose the first question of round 2!`,
+      97: `Round 1 is done, this is round 2.`,
       98: `${player[1]}, you are kicking off the game! choose your first question and good luck`,
-      99: `Welcome to Jeopardy ${player[1]}, ${player[2]} and ${player[3]}, enjoy the game!`,
+      99: `Welcome to Jeopardy ${player[1]}, ${player[2]} and ${player[3]}. you are about to start round 1.`,
       100: `${player[currentPlayerId]}, it's your turn again, choose another question!`,
       101: `${player[currentPlayerId]} it's your turn, choose a question!`,
       102: `The answer is correct, you earned ${points} points, ${player[currentPlayerId]}!`,

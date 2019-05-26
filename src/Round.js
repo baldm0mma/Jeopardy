@@ -10,13 +10,25 @@ class Round {
     this.categoryTitles = this.generateCurrentCategoryTitle(randomCategories);
     this.categoryClues = this.generateCurrentCategoryClues(randomCategories);
     this.dailyDouble = this.generateDailyDoublePosition();
+    
   }
 
   startingPrompt() {
-    let welcome = () => domUpdates.turnPrompt(99);
-    setTimeout(welcome, 500);
-    let firstPlayerStart = () => domUpdates.turnPrompt(98, this.currentTurn);
-    setTimeout(firstPlayerStart, 3000);
+    console.log('1: ', this.currentTurn)
+    if (this.currentTurn === 1) {
+      let welcome = () => domUpdates.turnPrompt(99);
+      setTimeout(welcome, 500);
+      let firstPlayerStart = () => domUpdates.turnPrompt(98, this.currentTurn);
+      setTimeout(firstPlayerStart, 3000);
+      console.log('2: ', this.currentTurn)
+    } else if (this.currentTurn === 2) {
+      let welcome = () => domUpdates.turnPrompt(97);
+      setTimeout(welcome, 500);
+      let firstPlayerStart = () => domUpdates.turnPrompt(96, this.currentTurn);
+      setTimeout(firstPlayerStart, 3000);
+      console.log('3: ', this.currentTurn)
+    }
+    
   }
 
   generateCurrentCategoryTitle(randomCategories) {
@@ -47,6 +59,7 @@ class Round {
     } else {
       this.currentTurn++;
     }
+    
   }
 
   confirmCurrentPlayer() {
@@ -70,7 +83,9 @@ class Round {
       let go = () => domUpdates.turnPrompt(101, this.currentTurn, points);
       setTimeout(go, 3000);
       this.nextTurn();
+      
     }
+    
   }
 
   calculateRegularPoints(clue) {

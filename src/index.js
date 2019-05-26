@@ -46,7 +46,7 @@ $(document).ready(function() {
       domUpdates.updatePlayerNames(game);
     }
     
-    main__game-prompts  });
+  });
 
 });
 
