@@ -12,7 +12,7 @@ class Round {
     this.dailyDouble = this.generateDailyDoublePosition();
   }
 
-  startingPrompt() {
+  generateStartingPrompt() {
     let welcome = () => domUpdates.turnPrompt(99);
     setTimeout(welcome, 500);
     let firstPlayerStart = () => domUpdates.turnPrompt(98, this.currentTurn);
@@ -20,7 +20,7 @@ class Round {
   }
 
   generateCurrentCategoryTitle(randomCategories) {
-    this.startingPrompt();
+    this.generateStartingPrompt();
     return randomCategories.map(category => {
       let final = Object.keys(this.data.categories).find(key =>
         this.data.categories[key] === category);
@@ -41,7 +41,7 @@ class Round {
     });
   }
 
-  nextTurn() {
+  incrementNextTurn() {
     if (this.currentTurn >= 3) {
       this.currentTurn = 1;
     } else {
@@ -59,17 +59,17 @@ class Round {
     const points = dailyDoubleChecker ? dailyDoubleWager : this.calculateRegularPoints(clue);
     if (playerInput.toLowerCase() === clue.answer.toLowerCase()) {
       this.confirmCurrentPlayer().score += points;
-      domUpdates.updateScore(this.confirmCurrentPlayer())
+      domUpdates.updateScore(this.confirmCurrentPlayer());
       domUpdates.turnPrompt(102, this.currentTurn, points);
       let go = () => domUpdates.turnPrompt(100, this.currentTurn, points);
       setTimeout(go, 3000);
     } else {
       this.confirmCurrentPlayer().score -= points;
-      domUpdates.updateScore(this.confirmCurrentPlayer())
+      domUpdates.updateScore(this.confirmCurrentPlayer());
       domUpdates.turnPrompt(103, this.currentTurn, points);
       let go = () => domUpdates.turnPrompt(101, this.currentTurn, points);
       setTimeout(go, 3000);
-      this.nextTurn();
+      this.incrementNextTurn();
     }
   }
 
