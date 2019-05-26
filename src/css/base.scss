@@ -153,6 +153,8 @@ body {
 table {
   border-collapse: collapse;
   table-layout: fixed;
+  position: relative;
+  z-index: 2;
 }
 tr {
   width: 100%;
@@ -175,14 +177,30 @@ td {
   font-weight: bold;
   text-align: center;
   height: 21.25%;
-}
+  z-index: 2;
+};
 
 .clue-class {
   color: #fff;
   font-size: 16px;
   padding-left: 5px;
   text-align: left;
-}
+};
+
+
+
+.prompt {
+  transition: 0.2s;
+  z-index: 1;
+  position: relative;
+};
+
+.prompt-translate-out {
+  transform: translateY(-45px);
+  transition: 0.2s;
+  z-index: 1;
+  position: relative;
+};
 
 .main__game-prompts {
   height: 40px;
@@ -193,6 +211,7 @@ td {
   font-size: 18px;
   border-left: 2px solid #B5B5B5;
   border-right: 2px solid #B5B5B5;
+  z-index: -2;
 };
 
 .main__game-your-answer-container {
