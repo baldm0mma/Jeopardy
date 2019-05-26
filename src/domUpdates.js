@@ -19,22 +19,22 @@ const domUpdates = {
 
   populateClues(game) {
     // console.log(game.round.categoryClues);
-    $('.main__game-data-1-1').text(game.round.categoryClues[0][0].pointValue * game.round.roundNumber);
-    $('.main__game-data-2-1').text(game.round.categoryClues[1][0].pointValue * game.round.roundNumber);
-    $('.main__game-data-3-1').text(game.round.categoryClues[2][0].pointValue * game.round.roundNumber);
-    $('.main__game-data-4-1').text(game.round.categoryClues[3][0].pointValue * game.round.roundNumber);
-    $('.main__game-data-1-2').text(game.round.categoryClues[0][1].pointValue * game.round.roundNumber);
-    $('.main__game-data-2-2').text(game.round.categoryClues[1][1].pointValue * game.round.roundNumber);
-    $('.main__game-data-3-2').text(game.round.categoryClues[2][1].pointValue * game.round.roundNumber);
-    $('.main__game-data-4-2').text(game.round.categoryClues[3][1].pointValue * game.round.roundNumber);
-    $('.main__game-data-1-3').text(game.round.categoryClues[0][2].pointValue * game.round.roundNumber);
-    $('.main__game-data-2-3').text(game.round.categoryClues[1][2].pointValue * game.round.roundNumber);
-    $('.main__game-data-3-3').text(game.round.categoryClues[2][2].pointValue * game.round.roundNumber);
-    $('.main__game-data-4-3').text(game.round.categoryClues[3][2].pointValue * game.round.roundNumber);
-    $('.main__game-data-1-4').text(game.round.categoryClues[0][3].pointValue * game.round.roundNumber);
-    $('.main__game-data-2-4').text(game.round.categoryClues[1][3].pointValue * game.round.roundNumber);
-    $('.main__game-data-3-4').text(game.round.categoryClues[2][3].pointValue * game.round.roundNumber);
-    $('.main__game-data-4-4').text(game.round.categoryClues[3][3].pointValue * game.round.roundNumber);
+    $('#00').text(game.round.categoryClues[0][0].pointValue * game.round.roundNumber);
+    $('#10').text(game.round.categoryClues[1][0].pointValue * game.round.roundNumber);
+    $('#20').text(game.round.categoryClues[2][0].pointValue * game.round.roundNumber);
+    $('#30').text(game.round.categoryClues[3][0].pointValue * game.round.roundNumber);
+    $('#01').text(game.round.categoryClues[0][1].pointValue * game.round.roundNumber);
+    $('#11').text(game.round.categoryClues[1][1].pointValue * game.round.roundNumber);
+    $('#21').text(game.round.categoryClues[2][1].pointValue * game.round.roundNumber);
+    $('#31').text(game.round.categoryClues[3][1].pointValue * game.round.roundNumber);
+    $('#02').text(game.round.categoryClues[0][2].pointValue * game.round.roundNumber);
+    $('#12').text(game.round.categoryClues[1][2].pointValue * game.round.roundNumber);
+    $('#22').text(game.round.categoryClues[2][2].pointValue * game.round.roundNumber);
+    $('#32').text(game.round.categoryClues[3][2].pointValue * game.round.roundNumber);
+    $('#03').text(game.round.categoryClues[0][3].pointValue * game.round.roundNumber);
+    $('#13').text(game.round.categoryClues[1][3].pointValue * game.round.roundNumber);
+    $('#23').text(game.round.categoryClues[2][3].pointValue * game.round.roundNumber);
+    $('#33').text(game.round.categoryClues[3][3].pointValue * game.round.roundNumber);
     // console.log(game.round.categoryClues[3][3].pointValue * game.round.roundNumber);
     domUpdates.selectClue(game);
   },
@@ -63,6 +63,7 @@ const domUpdates = {
       game.round.questionCounter--;
       if (game.round.questionCounter === 0) {
         $('td').removeAttr('data-done', 'done');
+        $('td').removeAttr('class', 'clue-class');
         game.createNextRound(game);
       }
     });
@@ -87,18 +88,13 @@ const domUpdates = {
       103: `The answer is wrong, you lost ${points} points, ${player[currentPlayerId]}!`,
     }
 
-    const pro = prompt[promptID];
-
-    $('.main__game-prompts').text("")
-    typeWriter()
-    var i = 1;
-    function typeWriter() {
-      if (0 < pro.length) {
-        $(".main__game-prompts").append(pro.charAt(i))
-        i++;
-        setTimeout(typeWriter, 15);
-      }
-    }
+    $('#promptId').text("");
+    $('#promptId').addClass('prompt-translate-out');
+    const p1 = () => $('#promptId').removeClass('prompt-translate-out');
+    setTimeout(p1, 300);
+    const p2 = () => $('#promptId').text(prompt[promptID]);
+    setTimeout(p2, 300);
+ 
     $('.main__players-player-name').removeClass('players-turn');
     $('.main__players-player-value').removeClass('players-turn-border');
     $(`.player-${currentPlayerId}-name`).addClass('players-turn');
