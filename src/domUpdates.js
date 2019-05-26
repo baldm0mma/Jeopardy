@@ -96,7 +96,6 @@ const domUpdates = {
     setTimeout(p1, 300);
     const p2 = () => $('#promptId').text(prompt[promptID]);
     setTimeout(p2, 300);
- 
     $('.main__players-player-name').removeClass('players-turn');
     $('.main__players-player-value').removeClass('players-turn-border');
     $(`.player-${currentPlayerId}-name`).addClass('players-turn');
