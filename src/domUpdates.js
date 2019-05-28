@@ -69,12 +69,14 @@ const domUpdates = {
     $(`.player-${currentPlayerId}-container`).addClass('players-turn-border');
   },
 
-  finalRoundBoard(game){
-    $('.main__game-board-container').html(`
-    <h2 class="final-category">${game.round.categoryTitles}</h2>
-    <p class="final-clue">FINAL CLUE!!</p>`)
+  finalRoundBoard(game) {
+    $('#th').text(game.round.categoryTitles);
+    $('#th').addClass('header-final-round');
+    $('#tr').addClass('body-final-round');
+ 
+    $('#tr').text('FINAL CLUE!!')
+    $('.hide').hide();
   }
-
 };
 
 export default domUpdates;

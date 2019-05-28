@@ -321,3 +321,22 @@ td {
 .reveal {
   display: block;
 }
+
+.header-final-round {
+  height: 80px;
+  color: $yellow;
+  text-align: center;
+  border: 2px solid  #B5B5B5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body-final-round {
+  height: 86.7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid  #B5B5B5;
+}
+
