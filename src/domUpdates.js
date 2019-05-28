@@ -14,11 +14,9 @@ const domUpdates = {
     $('.main__game-category-3').text(game.round.categoryTitles[2]);
     $('.main__game-category-4').text(game.round.categoryTitles[3]);
     domUpdates.populateClues(game);
-    // console.log(game.round.categoryClues);
   },
 
   populateClues(game) {
-    // console.log(game.round.categoryClues);
     $('#00').text(game.round.categoryClues[0][0].pointValue * game.round.roundNumber);
     $('#10').text(game.round.categoryClues[1][0].pointValue * game.round.roundNumber);
     $('#20').text(game.round.categoryClues[2][0].pointValue * game.round.roundNumber);
@@ -35,38 +33,6 @@ const domUpdates = {
     $('#13').text(game.round.categoryClues[1][3].pointValue * game.round.roundNumber);
     $('#23').text(game.round.categoryClues[2][3].pointValue * game.round.roundNumber);
     $('#33').text(game.round.categoryClues[3][3].pointValue * game.round.roundNumber);
-    // console.log(game.round.categoryClues[3][3].pointValue * game.round.roundNumber);
-    domUpdates.selectClue(game);
-  },
-
-  selectClue(game) {
-    let a, b, el;
-    let dailyDouble = game.round.generateDailyDoublePosition();
-    $('.main__game-board').click(function(e) {
-      el = e.target;
-      a = parseInt(el.dataset.if);
-      b = parseInt(el.dataset.is);
-      if ( !isNaN(a) && !isNaN(b) && $(el).attr('data-done') !== 'done') {
-        $(el).html(game.round.categoryClues[a][b].question)
-        $(el).addClass('clue-class');
-        $('.main__game-your-answer-container').addClass('slide-down');
-      }
-    });
-
-    $('#go-btn').click(function() {
-      $('.main__game-your-answer-container').removeClass('slide-down');
-      dailyDouble;
-      game.round.validateCurrentAnswer($('.your-answer-input').val(), game.round.categoryClues[a][b], [a, b], $('.daily-double-wager').val());
-      $('.your-answer-input').val("");
-      $(el).html("");
-      $(el).attr('data-done', 'done');
-      game.round.questionCounter--;
-      if (game.round.questionCounter === 0) {
-        $('td').removeAttr('data-done', 'done');
-        $('td').removeAttr('class', 'clue-class');
-        game.createNextRound(game);
-      }
-    });
   },
 
   updateScore(player) {

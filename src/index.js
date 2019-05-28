@@ -44,9 +44,38 @@ $(document).ready(function() {
       $(".main__entering-names-background").hide();
       const game = new Game([$('#player-one-input').val(), $('#player-two-input').val(), $('#player-three-input').val()], jeopardyData);
       domUpdates.updatePlayerNames(game);
+      selectClue(game)
+    }  
+  });
+});
+
+function selectClue(game) {
+  let a, b, el;
+  let dailyDouble = game.round.generateDailyDoublePosition();
+  $('.main__game-board').click(function(e) {
+    el = e.target;
+    a = parseInt(el.dataset.if);
+    b = parseInt(el.dataset.is);
+    if ( !isNaN(a) && !isNaN(b) && $(el).attr('data-done') !== 'done') {
+      $(el).html(game.round.categoryClues[a][b].question)
+      $(el).addClass('clue-class');
+      $('.main__game-your-answer-container').addClass('slide-down');
     }
-    
   });
 
-});
+  $('#go-btn').click(function() {
+    $('.main__game-your-answer-container').removeClass('slide-down');
+    dailyDouble;
+    game.round.validateCurrentAnswer($('.your-answer-input').val(), game.round.categoryClues[a][b], [a, b], $('.daily-double-wager').val());
+    $('.your-answer-input').val("");
+    $(el).html("");
+    $(el).attr('data-done', 'done');
+    game.round.questionCounter--;
+    if (game.round.questionCounter === 0) {
+      $('td').removeAttr('data-done', 'done');
+      $('td').removeAttr('class', 'clue-class');
+      game.createNextRound(game);
+    }
+  });
+}
 

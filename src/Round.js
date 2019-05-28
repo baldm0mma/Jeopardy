@@ -30,7 +30,7 @@ class Round {
   }
 
   generateCurrentCategoryTitle(randomCategories) {
-    this.generateStartingPrompt();
+    this.startingPrompt();
     return randomCategories.map(category => {
       let final = Object.keys(this.data.categories).find(key =>
         this.data.categories[key] === category);
@@ -79,7 +79,7 @@ class Round {
       domUpdates.turnPrompt(103, this.currentTurn, points);
       let go = () => domUpdates.turnPrompt(101, this.currentTurn, points);
       setTimeout(go, 3000);
-      this.nextTurn(); 
+      this.incrementNextTurn(); 
     }
   }
 
