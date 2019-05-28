@@ -215,19 +215,19 @@ td {
 };
 
 .main__game-your-answer-container {
-  height: 55px;
+  align-items: center;
   background-color: #B5B5B5;
-  transform: translateY(-45px);
-  position: absolute;
-  width: 90%;
-  max-width: 1000px;
-  z-index: -1;
-  transition: 0.2s;
   border-left: 0px solid #B5B5B5;
   border-right: 2px solid #B5B5B5;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  height: 55px;
+  justify-content: flex-start;
+  max-width: 1000px;
+  position: absolute;
+  transform: translateY(-45px);
+  transition: 0.2s;
+  width: 90%;
+  z-index: -1;
 }
 
 .slide-down {
@@ -244,6 +244,7 @@ td {
   border-radius: 4px;
   background-color: #DEDDDD;
   border: 1px solid #6A6A6A;
+  margin-left: 43px;
 }
 
 #go-btn {
@@ -253,6 +254,7 @@ td {
   background-color: $yellow;
   color: $dark-blue;
   border: $dark-blue 1px solid;
+  margin-left: 43px;
 }
 
 .main__players-container {
@@ -304,4 +306,18 @@ td {
 
 .players-turn-border {
   border: 1px solid $yellow;
+}
+
+.daily-double {
+  background-color: $yellow;
+  color: $dark-blue;
+  font-size: 20px;
+}
+
+.daily-double-wager {
+  display: none;
+}
+
+.reveal {
+  display: block;
 }
