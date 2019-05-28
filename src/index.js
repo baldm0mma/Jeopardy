@@ -64,7 +64,11 @@ function selectClue(game) {
     if (game.round.questionCounter === 0) {
       $('td').removeAttr('data-done', 'done');
       $('td').removeAttr('class', 'clue-class');
+      if(game.round.roundNumber === 1){
       game.createNextRound(game);
+      } else {
+        game.createFinalRound(game)
+      }
       dailyDouble = game.round.dailyDouble;
     }
 
