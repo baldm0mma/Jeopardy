@@ -66,6 +66,12 @@ const domUpdates = {
     $('.main__players-player-value').removeClass('players-turn-border');
     $(`.player-${currentPlayerId}-name`).addClass('players-turn');
     $(`.player-${currentPlayerId}-container`).addClass('players-turn-border');
+  },
+
+  finalRoundBoard(game){
+    $('.main__game-board-container').html(`
+    <h2 class="final-category">${game.round.categoryTitles}</h2>
+    <p class="final-clue">FINAL CLUE!!</p>`)
   }
 
 };
