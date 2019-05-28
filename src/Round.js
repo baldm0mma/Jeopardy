@@ -13,19 +13,16 @@ class Round {
   }
 
   startingPrompt() {
-    console.log('1: ', this.currentTurn)
     if (this.currentTurn === 1) {
       let welcome = () => domUpdates.turnPrompt(99);
       setTimeout(welcome, 500);
       let firstPlayerStart = () => domUpdates.turnPrompt(98, this.currentTurn);
       setTimeout(firstPlayerStart, 3000);
-      console.log('2: ', this.currentTurn)
     } else if (this.currentTurn === 2) {
       let welcome = () => domUpdates.turnPrompt(97);
       setTimeout(welcome, 500);
       let firstPlayerStart = () => domUpdates.turnPrompt(96, this.currentTurn);
       setTimeout(firstPlayerStart, 3000);
-      console.log('3: ', this.currentTurn)
     }
   }
 
@@ -65,7 +62,7 @@ class Round {
 
 
   validateCurrentAnswer(playerInput, clue, indecies, dailyDoubleWager) {
-    const dailyDoubleChecker = this.dailyDouble[0] === indecies[0] && this.dailyDouble[1] === indecies[1] ? true : false;
+    const dailyDoubleChecker = this.dailyDouble[0] === indecies[0] && this.dailyDouble[1] === indecies[1] || this.dailyDouble[2] === indecies[0] && this.dailyDouble[3] === indecies[1] ? true : false;
     const points = dailyDoubleChecker ? dailyDoubleWager : this.calculateRegularPoints(clue);
     if (playerInput.toLowerCase() === clue.answer.toLowerCase()) {
       this.confirmCurrentPlayer().score += points;
