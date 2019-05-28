@@ -76,7 +76,7 @@ class Round {
       domUpdates.turnPrompt(103, this.currentTurn, points);
       let go = () => domUpdates.turnPrompt(101, this.currentTurn, points);
       setTimeout(go, 3000);
-      this.incrementNextTurn(); 
+      this.incrementNextTurn();
     }
   }
 
