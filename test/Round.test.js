@@ -4,9 +4,9 @@ import spies from 'chai-spies';
 chai.use(spies);
 import Round from '../src/Round';
 import data from "../src/dataset";
-import domUpdates from "..src/domUpdates";
-// chai.spy.on(domUpdates, 'updateScore', () => true);
-// chai.spy.on(domUpdates, 'turnPrompt', () => true);
+import domUpdates from "../src/domUpdates";
+chai.spy.on(domUpdates, 'updateScore', () => true);
+chai.spy.on(domUpdates, 'turnPrompt', () => true);
 
 describe('Round', function() {
 
@@ -75,12 +75,13 @@ describe('Round', function() {
   });
 
   it('should have a method that validates the current answer, and updates points accordingly', function() {
-    expect(domUpdates.updateScore).to.have.been.called(1);
-    expect(domUpdates.turnPrompt).to.have.been.called(1);
 
     expect(round.allPlayers[0].score).to.equal(0);
     round.validateCurrentAnswer("Six Feet Under", clue, [1, 1]);
     expect(round.allPlayers[0].score).to.equal(300);
+
+    expect(domUpdates.updateScore).to.have.been.called(1);
+    expect(domUpdates.turnPrompt).to.have.been.called(1);
 
     round.validateCurrentAnswer("I dunno", clue, [1, 1]);
     expect(round.allPlayers[0].score).to.equal(0);

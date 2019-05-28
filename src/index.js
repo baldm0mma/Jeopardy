@@ -4,7 +4,6 @@ import './css/base.scss';
 import './images/turing-logo.png'
 import Game from './Game';
 import domUpdates from './domUpdates'
-import { domainToASCII } from 'url';
 
 let jeopardyData;
 
@@ -20,7 +19,7 @@ $(document).ready(function() {
       $(".main__entering-names-background").hide();
       const game = new Game([$('#player-one-input').val(), $('#player-two-input').val(), $('#player-three-input').val()], jeopardyData);
       domUpdates.updatePlayerNames(game);
-      selectClue(game)
+      selectClue(game);
     }  
   });
 });
