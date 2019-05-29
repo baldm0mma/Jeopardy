@@ -30,9 +30,9 @@ Run tests by typing `npm test` in your terminal in your cloned directory.
 - Display information on the page while maintaining ability to test class properties and methods.
 - Create a gameboard that is easy to follow and displays information in a clear and fun way.
 
-![Our comp](assets/Our-comp-1.png)
-![Our comp](assets/Our-comp-2.png)
-![Our comp](assets/Our-comp-3.png)
+![Our comp](src/images/Comp-1.png)
+![Our comp](src/images/Comp-2.png)
+![Our comp](src/images/Comp-3.png)
 
 ## Authors
 
@@ -44,4 +44,4 @@ Run tests by typing `npm test` in your terminal in your cloned directory.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
