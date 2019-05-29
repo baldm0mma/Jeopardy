@@ -73,6 +73,12 @@ const domUpdates = {
   },
 
   finalRoundBoard(game) {
+    $('.main__game-your-answer-container').addClass('slide-down');
+    $('.main__game__answers-1').hide();
+    $('.main__game__all-wagers').addClass('reveal');
+    $('.player-1-name-wager').text(game.player1.name);
+    $('.player-2-name-wager').text(game.player2.name);
+    $('.player-3-name-wager').text(game.player3.name);
     $('#th').text(game.round.categoryTitles);
     $('#th').addClass('header-final-round');
     $('#tr').addClass('body-final-round');
@@ -92,9 +98,10 @@ const domUpdates = {
       }
     })
     $('#final-answer-btn').click(function() {
-      game.round.validateFinalRoundQuestion(game.player1, $('player-1-answer'.val()))
-      game.round.validateFinalRoundQuestion(game.player2, $('player-1-answer'.val()))
-      game.round.validateFinalRoundQuestion(game.player3, $('player-1-answer'.val()))
+      game.round.validateFinalRoundQuestion(game.player1, $('#player-1-answer').val())
+      game.round.validateFinalRoundQuestion(game.player2, $('#player-2-answer').val())
+      game.round.validateFinalRoundQuestion(game.player3, $('#player-3-answer').val())
+      domUpdates.showWinner(game, [game.player1.score, game.player2.score, game.player3.score])
     })
   },
 
@@ -102,7 +109,16 @@ const domUpdates = {
     p1.finalWager = $('#player-1-wager').val();
     p2.finalWager = $('#player-2-wager').val();
     p3.finalWager = $('#player-3-wager').val();
+  },
+  
+  showWinner(game, players) {
+    let winner = game.allPlayers.filter(player => {
+      return player.score === Math.max(...players)
+    })[0]
+    $('#tr').text(`${winner.name.toUpperCase()} IS THE WINNER WITH A SCORE OF ${winner.score}`)
   }
 };
+
+
 
 export default domUpdates;

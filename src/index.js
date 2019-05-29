@@ -72,13 +72,7 @@ function selectClue(game) {
   });
 
   $('.restart-btn').click(function() {
-    game.createFinalRound(game)
-    $('.main__game-your-answer-container').addClass('slide-down');
-    $('.main__game__answers-1').hide();
-    $('.main__game__all-wagers').addClass('reveal');
-    $('.player-1-name-wager').text(game.player1.name);
-    $('.player-2-name-wager').text(game.player2.name);
-    $('.player-3-name-wager').text(game.player3.name);
+    location.reload();
   })
 }
 

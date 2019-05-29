@@ -33,10 +33,6 @@ class Game {
     this.round = new FinalRound([this.categories[0]], this.allPlayers, this.data);
     domUpdates.finalRoundBoard(game)
   }
-
-  restartGame() {
-    
-  }
 }
 
 export default Game;
