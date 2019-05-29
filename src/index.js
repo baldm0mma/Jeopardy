@@ -4,7 +4,6 @@ import './css/base.scss';
 import './images/turing-logo.png'
 import Game from './Game';
 import domUpdates from './domUpdates'
-import { domainToASCII } from 'url';
 
 let jeopardyData;
 
@@ -20,7 +19,7 @@ $(document).ready(function() {
       $(".main__entering-names-background").hide();
       const game = new Game([$('#player-one-input').val(), $('#player-two-input').val(), $('#player-three-input').val()], jeopardyData);
       domUpdates.updatePlayerNames(game);
-      selectClue(game)
+      selectClue(game);
     }  
   });
 });
@@ -32,7 +31,7 @@ function selectClue(game) {
     el = e.target;
     a = parseInt(el.dataset.if);
     b = parseInt(el.dataset.is);
-    if ( !isNaN(a) && !isNaN(b) && $(el).attr('data-done') !== 'done') {
+    if (!isNaN(a) && !isNaN(b) && $(el).attr('data-done') !== 'done') {
       if (dailyDouble[0] === a && dailyDouble[1] === b || dailyDouble[2] === a && dailyDouble[3] === b) {
         $(el).html('Daily Double!');
         $(el).addClass('daily-double');
@@ -50,7 +49,6 @@ function selectClue(game) {
       $(el).addClass('clue-class');
       $('.main__game-your-answer-container').addClass('slide-down');
     }
-
   });
 
   $('#go-btn').click(function() {
