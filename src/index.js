@@ -27,6 +27,8 @@ $(document).ready(function() {
 function selectClue(game) {
   let a, b, el;
   let dailyDouble = game.round.dailyDouble;
+  ///////////////////////////////////////////////
+  console.log(dailyDouble);
   $('.main__game-board').click(function(e) {
     el = e.target;
     a = parseInt(el.dataset.if);
@@ -35,7 +37,7 @@ function selectClue(game) {
       if (dailyDouble[0] === a && dailyDouble[1] === b || dailyDouble[2] === a && dailyDouble[3] === b) {
         $(el).html('Daily Double!');
         $(el).addClass('daily-double');
-        $('.daily-double-wager').addClass('reveal');
+        $('.daily-double-wager').addClass('reveal-visibility');
         domUpdates.turnPrompt(95, game.round.currentTurn);
         setTimeout(verifyNormalClue, 3000);
       } else {
