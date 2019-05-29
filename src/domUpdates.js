@@ -68,7 +68,6 @@ const domUpdates = {
     $(`.player-${currentPlayerId}-name`).addClass('players-turn');
     $(`.player-${currentPlayerId}-container`).addClass('players-turn-border');
   }
-
 };
 
 export default domUpdates;
