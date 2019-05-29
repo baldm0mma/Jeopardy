@@ -247,7 +247,7 @@ td {
   margin-left: 43px;
 }
 
-#go-btn {
+.go-btn-class {
   width: 275px;
   height: 27px;
   border-radius: 4px;
@@ -314,7 +314,9 @@ td {
   font-size: 20px;
 }
 
-.daily-double-wager {
+.daily-double-wage,
+.main__game__all-wagers,
+.main__game__all-answers {
   display: none;
 }
 

@@ -76,6 +76,28 @@ const domUpdates = {
  
     $('#tr').text('FINAL CLUE!!')
     $('.hide').hide();
+    $('#wager-btn').click(function() {
+      domUpdates.captureWager(game.player1, game.player2, game.player3);
+      $('.main__game-your-answer-container').removeClass('slide-down');
+      
+      setTimeout(slideQuestions, 300);
+      function slideQuestions() {
+        $('.main__game__all-wagers').hide();
+        $('.main__game__all-answers').addClass('reveal');
+        $('.main__game-your-answer-container').addClass('slide-down');
+      }
+    })
+    $('#final-answer-btn').click(function() {
+      game.round.validateFinalRoundQuestion(game.player1, $('player-1-answer'.val()))
+      game.round.validateFinalRoundQuestion(game.player2, $('player-1-answer'.val()))
+      game.round.validateFinalRoundQuestion(game.player3, $('player-1-answer'.val()))
+    })
+  },
+
+  captureWager(p1, p2, p3) {
+    p1.finalWager = $('#player-1-wager').val();
+    p2.finalWager = $('#player-2-wager').val();
+    p3.finalWager = $('#player-3-wager').val();
   }
 };
 

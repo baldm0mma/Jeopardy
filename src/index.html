@@ -66,9 +66,29 @@
               <p id="promptId" class="prompt"></p>
           </div>
           <div class="main__game-your-answer-container">
-            <input class="your-answer-input" type="text" placeholder="Your answer...">
-            <input class="your-answer-input daily-double-wager" type="text" placeholder="Daily double...">
-            <button id="go-btn">GO!</button>
+            <div class="main__game__answers-1">
+              <input class="your-answer-input" type="text" placeholder="Your answer...">
+              <input class="your-answer-input daily-double-wager" type="text" placeholder="Daily double...">
+              <button id="go-btn" class="go-btn-class">GO!</button>
+            </div>
+            <div class="main__game__all-wagers">
+              <label for="player-1-wager" id="player-1-wager-name">player 1</label>
+              <input id="player-1-wager" type="text">
+              <label for="player-2-wager" id="player-2-wager-name">player 2</label>
+              <input id="player-2-wager" type="text">
+              <label for="player-3-wager" id="player-3-wager-name">player 3</label>
+              <input id="player-3-wager" type="text">
+              <button class="go-btn-class" id="wager-btn">GO!</button>
+            </div>
+            <div class="main__game__all-answers">
+                <label for="player-1-answer" id="player-1-answer-name">player 1</label>
+                <input id="player-1-answer" type="text">
+                <label for="player-2-answer" id="player-2-answer-name">player 2</label>
+                <input id="player-2-answer" type="text">
+                <label for="player-3-answer" id="player-3-answer-name">player 3</label>
+                <input id="player-3-answer" type="text">
+                <button class="go-btn-class" id="final-answer-btn">GO!</button>
+              </div>
           </div>
       </div>
       <div class="main__players-container">

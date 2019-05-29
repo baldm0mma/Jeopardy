@@ -76,8 +76,11 @@ function selectClue(game) {
   $('.restart-btn').click(function() {
     game.createFinalRound(game)
     $('.main__game-your-answer-container').addClass('slide-down');
-    $('.main-game-answer-2').addClass('.main-game-answer-2-reveal');
-    $('.main-game-answer-3').addClass('.main-game-answer-3-reveal');
+    $('.main__game__answers-1').hide();
+    $('.main__game__all-wagers').addClass('reveal');
+    $('#player-1-wager-name').text(game.player1.name);
+    $('#player-2-wager-name').text(game.player2.name);
+    $('#player-3-wager-name').text(game.player3.name);
   })
 }
 
