@@ -29,8 +29,9 @@ class Game {
     domUpdates.populateCatagories(game);
   }
 
-  createFinalRound() {
+  createFinalRound(game) {
     this.round = new FinalRound([this.categories[0]], this.allPlayers, this.data);
+    domUpdates.finalRoundBoard(game)
   }
 
   restartGame() {

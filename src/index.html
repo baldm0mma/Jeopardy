@@ -31,31 +31,31 @@
           <h1 class="logo">Jeopardy</h1>
         <div class="main__game-board-container">
           <table class="main__game-board">
-            <tr>
+            <tr id="th">
                 <th class="main__game-category-1"></th>
                 <th class="main__game-category-2"></th>
                 <th class="main__game-category-3"></th>
                 <th class="main__game-category-4"></th>
             </tr>
-            <tr>
+            <tr id="tr">
                 <td id="00" data-if="0" data-is="0"></td>
                 <td id="10" data-if="1" data-is="0"></td>
                 <td id="20" data-if="2" data-is="0"></td>
                 <td id="30" data-if="3" data-is="0"></td>
             </tr>
-            <tr>
+            <tr class="hide">
                 <td id="01" data-if="0" data-is="1"></td>
                 <td id="11" data-if="1" data-is="1"></td>
                 <td id="21" data-if="2" data-is="1"></td>
                 <td id="31" data-if="3" data-is="1"></td>
             </tr>
-            <tr>
+            <tr class="hide">
                 <td id="02" data-if="0" data-is="2"></td>
                 <td id="12" data-if="1" data-is="2"></td>
                 <td id="22" data-if="2" data-is="2"></td>
                 <td id="32" data-if="3" data-is="2"></td>
             </tr>
-            <tr>
+            <tr class="hide">
                 <td id="03" data-if="0" data-is="3"></td>
                 <td id="13" data-if="1" data-is="3"></td>
                 <td id="23" data-if="2" data-is="3"></td>
@@ -66,9 +66,29 @@
               <p id="promptId" class="prompt"></p>
           </div>
           <div class="main__game-your-answer-container">
-            <input class="your-answer-input" type="text" placeholder="Your answer...">
-            <input class="your-answer-input daily-double-wager" type="text" placeholder="Daily double...">
-            <button id="go-btn">GO!</button>
+            <div class="main__game__answers-1">
+              <input class="your-answer-input" type="text" placeholder="Your answer...">
+              <input class="your-answer-input daily-double-wager" type="text" placeholder="Daily double...">
+              <button id="go-btn" class="go-btn-class">GO!</button>
+            </div>
+            <div class="main__game__all-wagers">
+              <label for="player-1-wager" class="player-1-name-wager">player 1</label>
+              <input id="player-1-wager" type="text">
+              <label for="player-2-wager" class="player-2-name-wager">player 2</label>
+              <input id="player-2-wager" type="text">
+              <label for="player-3-wager" class="player-3-name-wager">player 3</label>
+              <input id="player-3-wager" type="text">
+              <button class="go-btn-class" id="wager-btn">GO!</button>
+            </div>
+            <div class="main__game__all-answers">
+                <label for="player-1-answer" class="player-1-name-wager">player 1</label>
+                <input id="player-1-answer" type="text">
+                <label for="player-2-answer" class="player-2-name-wager">player 2</label>
+                <input id="player-2-answer" type="text">
+                <label for="player-3-answer" class="player-3-name-wager">player 3</label>
+                <input id="player-3-answer" type="text">
+                <button class="go-btn-class" id="final-answer-btn">GO!</button>
+              </div>
           </div>
       </div>
       <div class="main__players-container">

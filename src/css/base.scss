@@ -247,7 +247,7 @@ td {
   margin-left: 43px;
 }
 
-#go-btn {
+.go-btn-class {
   width: 275px;
   height: 27px;
   border-radius: 4px;
@@ -314,6 +314,9 @@ td {
   font-size: 20px;
 }
 
+.daily-double-wage,
+.main__game__all-wagers,
+.main__game__all-answers,
 .daily-double-wager {
   display: none;
 }
@@ -321,3 +324,22 @@ td {
 .reveal {
   display: block;
 }
+
+.header-final-round {
+  height: 80px;
+  color: $yellow;
+  text-align: center;
+  border: 2px solid  #B5B5B5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body-final-round {
+  height: 86.7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid  #B5B5B5;
+}
+

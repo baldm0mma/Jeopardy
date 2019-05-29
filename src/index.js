@@ -62,9 +62,23 @@ function selectClue(game) {
     if (game.round.questionCounter === 0) {
       $('td').removeAttr('data-done', 'done');
       $('td').removeAttr('class', 'clue-class');
-      game.createNextRound(game);
+      if (game.round.roundNumber === 1) {
+        game.createNextRound(game);
+      } else {
+        game.createFinalRound(game)
+      }
       dailyDouble = game.round.dailyDouble;
     }
   });
+
+  $('.restart-btn').click(function() {
+    game.createFinalRound(game)
+    $('.main__game-your-answer-container').addClass('slide-down');
+    $('.main__game__answers-1').hide();
+    $('.main__game__all-wagers').addClass('reveal');
+    $('.player-1-name-wager').text(game.player1.name);
+    $('.player-2-name-wager').text(game.player2.name);
+    $('.player-3-name-wager').text(game.player3.name);
+  })
 }
 
