@@ -31,12 +31,12 @@ function selectClue(game) {
     el = e.target;
     a = parseInt(el.dataset.if);
     b = parseInt(el.dataset.is);
-    if ( !isNaN(a) && !isNaN(b) && $(el).attr('data-done') !== 'done') {
+    if (!isNaN(a) && !isNaN(b) && $(el).attr('data-done') !== 'done') {
       if (dailyDouble[0] === a && dailyDouble[1] === b || dailyDouble[2] === a && dailyDouble[3] === b) {
         $(el).html('Daily Double!');
-        $(el).addClass('daily-double')
-        $('.daily-double-wager').addClass('reveal')
-        domUpdates.turnPrompt(95, game.round.currentTurn)
+        $(el).addClass('daily-double');
+        $('.daily-double-wager').addClass('reveal');
+        domUpdates.turnPrompt(95, game.round.currentTurn);
         setTimeout(verifyNormalClue, 3000);
       } else {
         verifyNormalClue();
@@ -49,7 +49,6 @@ function selectClue(game) {
       $(el).addClass('clue-class');
       $('.main__game-your-answer-container').addClass('slide-down');
     }
-
   });
 
   $('#go-btn').click(function() {
@@ -58,20 +57,28 @@ function selectClue(game) {
     $('.your-answer-input').val("");
     $(el).html("");
     $(el).attr('data-done', 'done');
-    $('.daily-double-wager').removeClass('reveal')
+    $('.daily-double-wager').removeClass('reveal');
     game.round.questionCounter--;
     if (game.round.questionCounter === 0) {
       $('td').removeAttr('data-done', 'done');
       $('td').removeAttr('class', 'clue-class');
-      if(game.round.roundNumber === 1){
-      game.createNextRound(game);
+      if (game.round.roundNumber === 1) {
+        game.createNextRound(game);
       } else {
         game.createFinalRound(game)
       }
       dailyDouble = game.round.dailyDouble;
     }
-
-
   });
+
+  $('.restart-btn').click(function() {
+    game.createFinalRound(game)
+    $('.main__game-your-answer-container').addClass('slide-down');
+    $('.main__game__answers-1').hide();
+    $('.main__game__all-wagers').addClass('reveal');
+    $('.player-1-name-wager').text(game.player1.name);
+    $('.player-2-name-wager').text(game.player2.name);
+    $('.player-3-name-wager').text(game.player3.name);
+  })
 }
 
