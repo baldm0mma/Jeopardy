@@ -13,6 +13,7 @@ const domUpdates = {
     $('.main__game-category-2').text(game.round.categoryTitles[1]);
     $('.main__game-category-3').text(game.round.categoryTitles[2]);
     $('.main__game-category-4').text(game.round.categoryTitles[3]);
+    game.round.startingPrompt();
     domUpdates.populateClues(game);
   },
 
@@ -46,6 +47,8 @@ const domUpdates = {
       3: $('#player-three-input').val(),
     };
     const prompt = {
+      93: `Now enter your final answers!`,
+      94: `Final round! Everyone enter a wager...`,
       95: `${player[currentPlayerId]}, it's the Daily Double!`,
       96: `${player[currentPlayerId]}, choose the first question of round 2!`,
       97: `Round 1 is done, this is round 2.`,
@@ -73,13 +76,14 @@ const domUpdates = {
     $('#th').text(game.round.categoryTitles);
     $('#th').addClass('header-final-round');
     $('#tr').addClass('body-final-round');
- 
     $('#tr').text('FINAL CLUE!!')
+    domUpdates.turnPrompt(94);
     $('.hide').hide();
     $('#wager-btn').click(function() {
       domUpdates.captureWager(game.player1, game.player2, game.player3);
       $('.main__game-your-answer-container').removeClass('slide-down');
-      
+      domUpdates.turnPrompt(93);
+      $('#tr').text(game.round.finalClue.question);
       setTimeout(slideQuestions, 300);
       function slideQuestions() {
         $('.main__game__all-wagers').hide();

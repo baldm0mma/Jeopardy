@@ -13,12 +13,12 @@ class Round {
   }
 
   startingPrompt() {
-    if (this.currentTurn === 1) {
+    if (this.roundNumber === 1) {
       let welcome = () => domUpdates.turnPrompt(99);
       setTimeout(welcome, 500);
       let firstPlayerStart = () => domUpdates.turnPrompt(98, this.currentTurn);
       setTimeout(firstPlayerStart, 3000);
-    } else if (this.currentTurn === 2) {
+    } else if (this.roundNumber === 2) {
       let welcome = () => domUpdates.turnPrompt(97);
       setTimeout(welcome, 500);
       let firstPlayerStart = () => domUpdates.turnPrompt(96, this.currentTurn);
@@ -27,7 +27,7 @@ class Round {
   }
 
   generateCurrentCategoryTitle(randomCategories) {
-    this.startingPrompt();
+    
     return randomCategories.map(category => {
       let final = Object.keys(this.data.categories).find(key =>
         this.data.categories[key] === category);
