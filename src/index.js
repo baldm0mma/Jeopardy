@@ -27,6 +27,8 @@ $(document).ready(function() {
 function selectClue(game) {
   let a, b, el;
   let dailyDouble = game.round.dailyDouble;
+  ///////////////////////////////////////////////
+  console.log(dailyDouble);
   $('.main__game-board').click(function(e) {
     el = e.target;
     a = parseInt(el.dataset.if);

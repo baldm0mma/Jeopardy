@@ -316,13 +316,17 @@ td {
 
 .daily-double-wage,
 .main__game__all-wagers,
-.main__game__all-answers,
-.daily-double-wager {
+.main__game__all-answers {
   display: none;
 }
 
+.daily-double-wager {
+  visibility: hidden;
+}
+
+
 .reveal {
-  display: block;
+  visibility: visible;
 }
 
 .header-final-round {
