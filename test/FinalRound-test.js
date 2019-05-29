@@ -7,12 +7,12 @@ describe('FinalRound', function() {
 
   let finalRound;
   let allPlayers;
+
   beforeEach(function() {
     finalRound = new FinalRound([1, 2, 3, 4], allPlayers, data);
-    allPlayers = [{ name: 'jev', id: 1, score: 0 }, 
-      { name: 'dem', id: 2, score: 0 }, 
-      { name: 'hin', id: 3, score: 0 }];
-
+    allPlayers = [{ name: 'jev', id: 1, score: 0, finalWager: 100 }, 
+      { name: 'dem', id: 2, score: 0, finalWager: 100 }, 
+      { name: 'hin', id: 3, score: 0, finalWager: 100 }];
   });
 
   it('should be a function', function() {
