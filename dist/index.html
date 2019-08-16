@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Jeopardy</title>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Macondo+Swash+Caps|Roboto:100&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/images/jeop-icon.png"/>
+  </head>
+  <body>
+    <main>
+      <section class="main__entering-names-background">
+        <div class="main__entering-names">
+          <h2 class="main__entering-names-header yellow-text">Welcome to Jeopardy, please enter your names to start the game!</h2>
+          <div class="player-names-container yellow-text">
+            <div class="main__entering-names-player-container">
+              <label class="player-input-label" for="player-one-input">PLAYER I</label>
+              <input class="player-input" type="text" id="player-one-input">
+            </div>
+            <div class="main__entering-names-player-container">
+              <label class="player-input-label" for="player-two-input">PLAYER II</label>
+              <input class="player-input" type="text" id="player-two-input">
+            </div>
+            <div class="main__entering-names-player-container">
+              <label class="player-input-label" for="player-three-input">PLAYER III</label>
+              <input class="player-input" type="text" id="player-three-input">
+            </div>
+          </div>
+          <button class="start-btn">START</button>
+        </div>
+        </section>
+        <section class="main__game-background">
+          <h1 class="logo">Jeopardy</h1>
+        <div class="main__game-board-container">
+          <table class="main__game-board">
+            <tr id="th">
+                <th class="main__game-category-1"></th>
+                <th class="main__game-category-2"></th>
+                <th class="main__game-category-3"></th>
+                <th class="main__game-category-4"></th>
+            </tr>
+            <tr id="tr">
+                <td id="00" data-if="0" data-is="0"></td>
+                <td id="10" data-if="1" data-is="0"></td>
+                <td id="20" data-if="2" data-is="0"></td>
+                <td id="30" data-if="3" data-is="0"></td>
+            </tr>
+            <tr class="hide">
+                <td id="01" data-if="0" data-is="1"></td>
+                <td id="11" data-if="1" data-is="1"></td>
+                <td id="21" data-if="2" data-is="1"></td>
+                <td id="31" data-if="3" data-is="1"></td>
+            </tr>
+            <tr class="hide">
+                <td id="02" data-if="0" data-is="2"></td>
+                <td id="12" data-if="1" data-is="2"></td>
+                <td id="22" data-if="2" data-is="2"></td>
+                <td id="32" data-if="3" data-is="2"></td>
+            </tr>
+            <tr class="hide">
+                <td id="03" data-if="0" data-is="3"></td>
+                <td id="13" data-if="1" data-is="3"></td>
+                <td id="23" data-if="2" data-is="3"></td>
+                <td id="33" data-if="3" data-is="3"></td>
+            </tr>
+          </table>
+          <div class="main__game-prompts">
+              <p id="promptId" class="prompt"></p>
+          </div>
+          <div class="main__game-your-answer-container">
+            <div class="main__game__answers-1">
+              <input class="your-answer-input" type="text" placeholder="Your answer...">
+              <input class="your-answer-input daily-double-wager" type="text" placeholder="Daily double...">
+              <button id="go-btn" class="go-btn-class">GO!</button>
+            </div>
+            <div class="main__game__all-wagers">
+                <label for="player-1-wager" class="player-1-name-wager player-name">player 1</label>
+                <input class="input-wager" id="player-1-wager" type="text">
+              <label for="player-2-wager" class="player-2-name-wager player-name">player 2</label>
+              <input class="input-wager" id="player-2-wager" type="text">
+              <label for="player-3-wager" class="player-3-name-wager player-name">player 3</label>
+              <input class="input-wager" id="player-3-wager" type="text">
+              <button class="go-btn-class" id="wager-btn">GO!</button>
+            </div>
+            <div class="main__game__all-answers">
+                <label for="player-1-answer" class="player-1-name-wager player-name">player 1</label>
+                <input class="input-wager" id="player-1-answer" type="text">
+
+                <label for="player-2-answer" class="player-2-name-wager player-name">player 2</label>
+                <input class="input-wager" id="player-2-answer" type="text">
+
+                <label for="player-3-answer" class="player-3-name-wager player-name">player 3</label>
+                <input class="input-wager" id="player-3-answer" type="text">
+
+                <button class="go-btn-class" id="final-answer-btn">GO!</button>
+              </div>
+          </div>
+      </div>
+      <div class="main__players-container">
+        <div class="main__players">
+          <section class="main__players-player-value player-1-container">
+            <p id="player-1-value">0</p>
+            <h4 class="main__players-player-name player-1-name">Player I</h4>
+          </section>
+          <section class="main__players-player-value player-2-container">
+            <p id="player-2-value">0</p>
+            <h4 class="main__players-player-name player-2-name">Player II</h4>
+          </section>
+          <section class="main__players-player-value player-3-container">
+            <p id="player-3-value">0</p>
+            <h4 class="main__players-player-name player-3-name">Player III</h4>
+          </section>
+        </div>
+      </div>
+      </section>
+      <button class="restart-btn">RESTART</button>
+    </main>
+  <script type="text/javascript" src="main.bundle.js"></script></body>
+</html>
+
