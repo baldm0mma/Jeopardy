@@ -1,6 +1,8 @@
 # It's Jeopardy!!!
 
-This is our attempt to synthesize the worldwide famous and hugely popular game Jeopardy! Using a premade, fetched, trivia API, we used a number of Object, Array, Number, and String Prototypes to manipulate our dataset, then Jquery to display to the DOM, and SCSS for styling.
+This is our version of the worldwide famous, and hugely popular, Jeopardy! Fetching from a trivia API, we consume the data, clean it, and build out a fully functional, 3 round, Jeopardy! game that can be played online. We made this game with 4 developers in total, so leaning heavily into project managment tools, conducting daily stand-ups, concrete scheduling, pair-programming, and a commitment to always having open, honest, and healthy communication was key to this project's incredible success.
+
+We wanted to continue honing our vanilla JS and jQuery chops, so writing modular, easy-to-read data and DOM manipulation was at the forefront of our thought-processes. We finished this game in a week - a few days before we planned to, and used the final few days to refactor, polish, and clean our code.
 
 ## Getting Started
 
